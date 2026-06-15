@@ -88,25 +88,46 @@ export default function Contact() {
       />
 
       {/* Header */}
-      <Column
-        gap="s"
-        align="center"
-        horizontal="center"
-        maxWidth="s"
-        style={{ position: "relative", zIndex: 1 }}
-      >
-        <RevealFx translateY="4">
-          <Heading variant="display-strong-l" align="center">
-            Let's Connect
-          </Heading>
-        </RevealFx>
-        <RevealFx translateY="8" delay={0.1}>
-          <Text onBackground="neutral-weak" variant="body-default-l" align="center">
-            Interested in AI, software engineering, collaborations, or opportunities? Feel free to
-            reach out.
-          </Text>
-        </RevealFx>
-      </Column>
+      {/* Header */}
+<Column
+  gap="m"
+  horizontal="center"
+  fillWidth
+  style={{
+    position: "relative",
+    zIndex: 1,
+    textAlign: "center",
+    alignItems: "center",
+  }}
+>
+  <RevealFx translateY="4">
+    <Heading
+      variant="display-strong-l"
+      align="center"
+      style={{
+        width: "100%",
+        textAlign: "center",
+      }}
+    >
+      Let's Connect
+    </Heading>
+  </RevealFx>
+
+  <RevealFx translateY="8" delay={0.1}>
+    <Text
+      onBackground="neutral-weak"
+      variant="body-default-l"
+      align="center"
+      style={{
+        maxWidth: "700px",
+        margin: "0 auto",
+      }}
+    >
+      Interested in AI, software engineering, collaborations, or opportunities?
+      Feel free to reach out.
+    </Text>
+  </RevealFx>
+</Column>
 
       {/* CTA Buttons */}
       <RevealFx
