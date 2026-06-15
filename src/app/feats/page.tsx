@@ -87,7 +87,7 @@ const certifications = [
     year: "Oct 2026",
     link: "https://www.sololearn.com/certificates/CC-DZQCLALK",
     brand: "sololearn",
-    image: "/images/certs/python intermediate.jpg",
+    image: "/images/certs/Python intermediate.jpg",
   },
   {
     name: "Python Developer",
@@ -95,7 +95,7 @@ const certifications = [
     year: "Nov 2025",
     link: "https://www.sololearn.com/certificates/CC-ULR0I85O",
     brand: "sololearn",
-    image: "/images/certs/python developer.jpg",
+    image: "/images/certs/Python developer.jpg",
   },
 ];
 
