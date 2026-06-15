@@ -1,0 +1,61 @@
+---
+title: "Red Light Green Light (Squid Game Edition)"
+publishedAt: "2025-04-11"
+summary: "Interactive computer vision game that uses real-time pose detection to recreate the iconic Squid Game challenge."
+
+images:
+  - "/images/projects/squid-game/cover-01.jpg"
+  - "/images/projects/squid-game/cover-02.jpg"
+  - "/images/projects/squid-game/cover-03.jpg"
+  
+team:
+  - name: "Janani V"
+    role: "AI Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/jananiv05/"
+
+tags:
+  - "Computer Vision"
+
+link: "https://github.com/Janviswa/Red-Light-Green-Light.git"
+---
+
+## Overview
+
+Red Light Green Light (Squid Game Edition) is an interactive computer vision game inspired by the popular Squid Game challenge. Using real-time webcam input, the system tracks player movements through pose estimation and determines whether the player remains still during the "Red Light" phase. The project demonstrates how computer vision and human pose tracking can be applied to create engaging, gesture-driven gaming experiences.
+
+## Problem
+
+Traditional games rely on physical controllers or keyboard inputs, limiting natural interaction. The challenge was to develop a system capable of accurately detecting player movement in real time and enforcing game rules automatically using computer vision techniques. Maintaining accuracy while minimizing false eliminations was a key requirement.
+
+## Solution
+
+The application uses MediaPipe Pose to detect and track full-body landmarks from webcam footage. During the "Green Light" phase, players are free to move, while movement during the "Red Light" phase is continuously monitored. Landmark displacement is analyzed frame-by-frame, and players exceeding the movement threshold are eliminated. Real-time visual feedback and game status updates create an immersive gameplay experience.
+
+## Key Features
+
+- **Pose Estimation** — Detects and tracks full-body landmarks using MediaPipe Pose.
+- **Movement Analysis** — Measures body movement through landmark displacement between frames.
+- **Automated Game Logic** — Dynamically switches between Red Light and Green Light states.
+- **Real-Time Webcam Processing** — Performs live pose detection and movement tracking.
+- **Visual Game Feedback** — Displays player status, movement alerts, and game instructions on-screen.
+- **Configurable Sensitivity** — Adjustable movement thresholds to balance gameplay accuracy and fairness.
+
+## Technologies Used
+
+- **Python** — Core programming language for application development and game logic.
+- **OpenCV** — Handles webcam input, image processing, and visual overlays.
+- **MediaPipe** — Provides real-time pose estimation and landmark tracking.
+- **NumPy** — Performs numerical computations and movement analysis.
+
+## Challenges
+
+One of the main challenges was accurately distinguishing intentional movement from minor body fluctuations and camera noise. Determining optimal movement thresholds required extensive testing across different lighting conditions, camera positions, and user movements. Another challenge was ensuring smooth real-time performance while continuously processing pose landmarks and game state transitions.
+
+## Outcome
+
+The project successfully recreated the Red Light Green Light gameplay experience using computer vision and real-time pose tracking. The system achieved reliable movement detection with approximately **92% accuracy** during testing and demonstrated how pose estimation can be integrated into interactive gaming applications. The solution can be extended to multiplayer scenarios, fitness applications, and gesture-controlled entertainment systems.
+
+## Key Learnings
+
+This project strengthened my understanding of **pose estimation, movement analysis, and real-time computer vision systems**. I gained hands-on experience with MediaPipe's landmark detection framework, threshold-based motion tracking, and designing responsive game logic. It also highlighted the importance of balancing accuracy and user experience when building interactive AI-powered applications.

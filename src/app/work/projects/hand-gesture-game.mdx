@@ -1,0 +1,54 @@
+---
+title: "Hand Gesture Controlled Game (Hill climb Racing)"
+publishedAt: "2025-06-30"
+summary: "Real-time hand gesture recognition system for touchless game control using Python and computer vision."
+images:
+  - "/images/projects/hand-gesture-game/cover-01.jpg"
+  - "/images/projects/hand-gesture-game/cover-02.gif"
+team:
+  - name: "Janani V"
+    role: "AI Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/jananiv05/"
+tags:
+  - "Computer Vision"
+  - "Machine Learning"
+
+link: "https://github.com/Janviswa/Real-Time-Gesture-Control-for-Hill-Climb-Racing.git"
+---
+
+## Overview
+
+This project implements a **real-time hand gesture recognition system** that enables touchless control of Hill Climb Racing using a standard webcam. By combining MediaPipe's hand landmark detection with Python and OpenCV, the system translates gestures into game actions, providing a natural and interactive HCI experience. Users can play the game without a keyboard, making the experience more intuitive and accessible.
+
+## Problem
+
+Traditional game controllers require physical interaction, which can limit accessibility and natural interaction. There was a need for a **gesture-based, touchless interface** that allows players to control games using only hand movements captured via webcam.
+
+## Solution
+
+Developed a pipeline that integrates **MediaPipe's hand landmark detection** with a custom gesture classifier. Each detected hand pose is mapped to specific game actions in Hill Climb Racing. The system runs in real-time, providing low-latency control with visual feedback from the webcam.
+
+## Key Features
+
+- **Real-time Detection** — Hand tracking operating at over 30 FPS using MediaPipe for accurate landmark detection.
+- **Gesture Classifier** — Maps hand poses to keyboard events, enabling precise game control.  
+- **Touchless Gameplay** — Works seamlessly with any standard webcam; no physical controller required.  
+- **Low Latency** — Optimized processing pipeline with response times below 50 milliseconds per gesture.
+- **HCI-focused Design** — Natural and intuitive interaction suitable for casual and accessibility-focused gameplay.  
+- **Custom Mapping** — Easy-to-modify gesture-to-action rules for different games.  
+
+## Technologies Used
+
+- **Python** — Core language for implementing gesture detection, game control, and data processing.  
+- **OpenCV** — Handles image capture, preprocessing, and video stream management.  
+- **MediaPipe** — Provides hand landmark detection and robust real-time tracking.  
+- **NumPy** — Used for efficient array and matrix operations during gesture processing.  
+
+## Challenges and Learnings
+
+Ensuring robust real-time gesture recognition was the primary challenge, especially handling variations in hand orientation, lighting, and occlusion. Designing a **low-latency pipeline** to map gestures to game actions without perceptible delay required optimizing both detection and classification steps. Experimenting with MediaPipe parameters and gesture thresholds improved reliability and reduced false positives. This project strengthened skills in **real-time computer vision, HCI, and Python-based game automation**.
+
+## Outcome
+
+The system successfully allows **hands-free gameplay** in Hill Climb Racing with accurate and responsive gesture control. It demonstrates the potential for **gesture-based interfaces** in gaming and accessibility applications, achieving reliable detection at ~90% accuracy in live tests. The approach can be extended to other games or interactive applications for touchless control.

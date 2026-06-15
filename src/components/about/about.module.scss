@@ -1,0 +1,39 @@
+@use "../breakpoints.scss" as breakpoints;
+
+.hover {
+    transition: var(--transition-micro-medium);
+
+    &:hover {
+        transform: translateX(var(--static-space-4));
+    }
+}
+
+.projectPreview {
+    transition: var(--transition-micro-medium);
+
+    &:hover {
+        border-color: var(--brand-alpha-medium);
+        transform: translateY(-2px);
+    }
+
+    &:hover .projectOverlay {
+        opacity: 1;
+    }
+}
+
+.projectOverlay {
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+@media (max-width: breakpoints.$s) {
+    .textAlign {
+        text-align: center;
+    }
+
+    .blockAlign {
+        align-self: center;
+    }
+}

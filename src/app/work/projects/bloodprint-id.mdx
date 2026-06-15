@@ -1,0 +1,87 @@
+---
+title: "BloodPrint ID - Fingerprint Correlation Analysis"
+publishedAt: "2025-09-21"
+summary: "Research-driven AI project exploring blood group prediction through fingerprint pattern analysis using deep learning."
+images:
+  - "/images/projects/bloodprint-id/cover-01.jpg"
+  - "/images/projects/bloodprint-id/cover-02.jpg"
+  - "/images/projects/bloodprint-id/cover-03.gif"
+team:
+  - name: "Janani V"
+    role: "AI Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/jananiv05/"
+tags:
+  - "Computer Vision"
+  - "Machine Learning"
+  - "Web Applications"
+
+link: "https://github.com/Janviswa/BloodPrint-ID.git"
+---
+
+## Overview
+
+BloodPrint ID is a full-stack AI web application that analyzes fingerprint images to classify fingerprint patterns as Loop, Whorl, or Arch using deep learning. Based on published dermatoglyphic research, the system provides statistical blood group correlations and generates detailed analysis reports. Designed for educational and research purposes, the platform combines computer vision, machine learning, and modern web technologies to deliver an interactive user experience.
+
+## Problem
+
+Fingerprint patterns have been studied for decades for their potential relationship with blood groups, but existing research findings are scattered across academic literature and difficult to explore interactively. There is a need for a user-friendly platform that can analyze fingerprint patterns and visualize these statistical correlations in an accessible way.
+
+## Solution
+
+BloodPrint ID addresses this challenge through a computer vision pipeline powered by an EfficientNetB0-based deep learning model. The system processes uploaded fingerprint images, classifies fingerprint patterns, calculates image quality metrics, and generates blood group likelihood estimates based on published dermatoglyphic studies. Results are presented through an intuitive web interface with downloadable PDF reports and analysis history tracking.
+
+## Key Features
+
+- **Fingerprint Pattern Classification** — Classifies fingerprints into Loop, Whorl, and Arch patterns using EfficientNetB0.
+- **Blood Group Correlation Analysis** — Provides statistical blood group likelihood based on published research studies.
+- **Image Quality Assessment** — Calculates clarity score, ridge density, and edge ratio metrics.
+- **PDF Report Generation** — Generates professional downloadable reports for each analysis.
+- **Analysis History** — Stores and manages previous fingerprint analyses.
+- **Secure Authentication** — JWT-based user authentication and account management.
+- **Responsive User Interface** — Modern React-based interface with dark mode support.
+
+## Technologies Used
+
+### AI & Computer Vision
+
+- **Python** — Core programming language for model development and application logic.
+- **TensorFlow** — Deep learning framework used for training and inference.
+- **EfficientNetB0** — CNN architecture for fingerprint pattern classification.
+- **TensorFlow Lite (TFLite)** — Optimized model deployment and inference.
+- **OpenCV** — Image preprocessing, enhancement, and quality analysis.
+- **NumPy** — Numerical computations and data processing.
+
+### Backend
+
+- **Flask** — Backend API development and routing.
+- **Flask-JWT-Extended** — Secure JWT authentication and authorization.
+- **SQLAlchemy** — Database ORM and model management.
+
+### Frontend
+
+- **React** — Interactive user interface development.
+- **Vite** — Frontend build and development environment.
+- **Axios** — API communication and data fetching.
+
+### Database & Infrastructure
+
+- **PostgreSQL (Supabase)** — User management and analysis storage.
+- **ReportLab** — PDF report generation.
+- **Vercel** — Frontend hosting and deployment.
+- **Render** — Backend hosting and deployment.
+
+## Challenges and Learnings
+
+One of the primary challenges was extracting meaningful fingerprint features while maintaining classification accuracy across varying image qualities. Optimizing image preprocessing, implementing quality assessment metrics, and deploying an efficient TFLite model required extensive experimentation. The project strengthened skills in computer vision, deep learning, full-stack development, and AI model deployment.
+
+## Outcome
+
+BloodPrint ID successfully classifies fingerprint patterns and provides research-based blood group correlation insights through an intuitive web application. The project demonstrates the practical integration of computer vision, deep learning, and full-stack development while serving as an educational platform for exploring dermatoglyphic research.
+
+## Research References
+
+- Dogra, T.D. et al. (2014). *Fingerprint patterns and ABO blood group correlation*. Journal of Forensic Medicine and Toxicology.
+- Nayak, V.C. et al. (2010). *Correlating fingerprint patterns with blood groups*. Journal of Forensic and Legal Medicine.
+- Igbigbi, P.S. & Thumb, B. (2002). *Dermatoglyphic patterns of Ugandan and Tanzanian subjects*. West African Journal of Medicine.
+- Cummins, H. & Midlo, C. (1961). *Finger Prints, Palms and Soles*. Dover Publications.

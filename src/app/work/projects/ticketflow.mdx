@@ -1,0 +1,58 @@
+---
+title: "TicketFlow"
+publishedAt: "2025-03-01"
+summary: "AI-powered ticket routing and support assistant using LLMs."
+images:
+  - "/images/projects/assistly/cover-01.jpg"
+team:
+  - name: "Janani V"
+    role: "AI Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/jananiv05/"
+tags:
+  - "LLM"
+  - "RAG"
+  - "GenAI"
+link: "https://github.com/Janviswa"
+---
+
+## Overview
+
+Assistly is an AI-powered ticket routing and support assistant that leverages Large Language Models to intelligently classify, prioritise, and route support tickets — reducing manual workload and improving resolution time.
+
+## Problem
+
+Support teams receive high volumes of tickets with varying complexity, priority, and domain. Manual triage is slow, inconsistent, and burns agent capacity on issues that could be automated.
+
+## Solution
+
+Built an LLM-powered backend that reads incoming tickets, classifies intent and urgency, routes to the correct team, and generates draft responses — automating the first-line triage process.
+
+## Key Features
+
+- **Intelligent Classification**: Categorises tickets by issue type, urgency, and department using LLM inference
+- **Auto-Routing**: Routes tickets to the appropriate team based on classification output
+- **Draft Response Generation**: Generates suggested responses for agents to review and send
+- **RAG Pipeline**: Uses retrieval-augmented generation to ground responses in knowledge base articles
+- **Dashboard**: Real-time overview of ticket volumes, categories, and routing decisions
+
+## Technologies Used
+
+- **Python**: Backend development
+- **LangChain**: LLM orchestration and RAG pipeline
+- **OpenAI API**: Language model inference
+- **FastAPI**: REST API backend
+- **PostgreSQL**: Ticket storage and retrieval
+- **React**: Frontend dashboard
+
+## Challenges
+
+Ensuring consistent classification quality across diverse ticket phrasings required careful prompt engineering and few-shot examples. Grounding responses in the knowledge base via RAG significantly reduced hallucination.
+
+## Results
+
+Automated the triage of a significant portion of incoming tickets, reducing average routing time and freeing agent capacity for complex issues.
+
+## Key Learnings
+
+RAG-augmented LLM responses are far more reliable and trustworthy than vanilla generation for support contexts. Structured prompting with output schemas made downstream processing reliable.

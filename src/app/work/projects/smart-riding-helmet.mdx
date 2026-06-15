@@ -1,0 +1,69 @@
+---
+title: "AI-Driven Smart Riding Helmet"
+publishedAt: "2024-09-26"
+summary: "AI-powered rider safety system that combines drowsiness detection, alcohol monitoring, GPS tracking, and real-time alerts through an intelligent IoT dashboard."
+images:
+  - "/images/projects/Smart Helmet/Cover-01.jpg"
+  - "/images/projects/Smart Helmet/Cover-02.jpg"
+team:
+  - name: "Janani V"
+    role: "AI Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/jananiv05/"
+tags:
+  - "IoT"
+link: "https://github.com/Janviswa"
+---
+
+## Overview
+
+Smart Riding Helmet is an IoT-based rider safety system that monitors drowsiness, alcohol levels, and rider location in real time. Using embedded sensors, RF communication, and a live dashboard, the system provides instant alerts and safety insights to help reduce accident risks.
+
+## Problem
+Road accidents caused by fatigue, alcohol consumption, and delayed emergency response remain significant safety challenges. Traditional helmets offer protection but lack intelligent monitoring and alert capabilities.
+
+## Solution
+Developed a smart helmet that uses sensors to detect drowsiness, alcohol presence, and rider location. Sensor data is transmitted wirelessly via RF communication to a web dashboard, where rider status, risk levels, and location information are monitored in real time.nditions such as drowsiness, alcohol consumption, and location. Sensor data is transmitted wirelessly to a centralized dashboard, enabling real-time visualization, safety analytics, and instant alerts. The system aims to reduce accident risks by proactively identifying unsafe riding conditions and supporting rapid emergency response.
+
+## Key Features
+- **Drowsiness Monitoring** — Detects fatigue levels and identifies potential rider drowsiness.
+- **Alcohol Detection** — Monitors alcohol concentration and flags unsafe riding conditions.
+- **GPS Tracking** — Captures real-time rider location for monitoring and emergency assistance.
+- **Wireless Communication** — Uses RF transmitter and receiver modules for real-time sensor data transmission.
+- **Risk Assessment Engine** — Evaluates sensor readings and categorizes rider safety levels.
+- **Live Monitoring Dashboard** — Displays sensor readings, risk status, location data, and historical logs.
+- **Emergency Alerts** — Generates notifications when dangerous conditions are detected.
+
+## Technologies Used
+### Hardware
+- **ESP32** — Main microcontroller for processing sensor data and managing system operations.
+- **MQ3 Alcohol Sensor** — Detects alcohol concentration levels to identify unsafe riding conditions.
+- **GPS Module (Neo-6M)** — Provides real-time location tracking for monitoring and emergency assistance.
+- **RF Transmitter & Receiver** — Enables wireless transmission of sensor data between the helmet and monitoring system.
+- **Rechargeable Li-ion Battery Module** — Powers the embedded system for portable operation.
+
+### Software
+- **Arduino IDE** — Development and deployment of embedded firmware.
+- **Embedded C/C++** — Sensor integration, data processing, and system control logic.
+- **PHP** — Backend development for dashboard functionality and data management.
+- **MySQL** — Stores rider information, sensor readings, and alert history.
+- **REST API (HTTP)** — Facilitates communication between devices, database, and dashboard.
+- **HTML, CSS, JavaScript** — Frontend development for interactive monitoring dashboards.
+- **Google Maps API** — Displays rider location and navigation data in real time.
+
+### Intelligence & Analytics
+- **Decision Tree Classifier** — Classifies rider conditions into Safe, Warning, and Critical states based on drowsiness and alcohol sensor readings.
+- **Risk Level Analysis** — Evaluates sensor inputs to determine overall rider safety status.
+- **Real-Time Alert Engine** — Generates instant alerts when abnormal or dangerous conditions are detected.
+
+## Challenges
+
+Ensuring reliable wireless communication between the helmet and monitoring platform while maintaining low latency was a major challenge. Calibrating drowsiness and alcohol thresholds for accurate risk classification required extensive testing under different riding conditions. Integrating GPS tracking, sensor monitoring, RF communication, and dashboard visualization into a unified real-time system also demanded careful optimization.
+
+## Outcome
+
+Successfully developed a smart helmet capable of monitoring rider safety conditions in real time. The system detects alcohol consumption, evaluates drowsiness levels using a Decision Tree classifier, tracks rider location, and displays safety insights through a live dashboard. By combining IoT sensors, wireless communication, and intelligent risk assessment, the solution enhances rider safety and supports proactive accident prevention.
+
+## Key Learnings
+
+This project strengthened my skills in IoT system design, embedded programming, wireless communication, GPS integration, sensor data processing, and dashboard development. It also provided practical experience in applying machine learning techniques for real-time risk classification and building intelligent safety solutions for transportation applications.

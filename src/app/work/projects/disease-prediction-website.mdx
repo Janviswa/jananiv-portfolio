@@ -1,0 +1,58 @@
+---
+title: "Disease Prediction Website"
+publishedAt: "2024-12-01"
+summary: "Machine learning-powered healthcare platform for predicting Heart Disease, Diabetes, and Parkinson's disease with multilingual support."
+images:
+  - "/images/projects/checkup-buddy/cover-01.jpg"
+  - "/images/projects/checkup-buddy/cover-02.jpg"
+  - "/images/projects/checkup-buddy/cover-03.gif"
+
+team:
+  - name: "Janani V"
+    role: "AI Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/jananiv05/"
+tags:
+  - "Machine Learning"
+
+link: "https://github.com/Janviswa/Disease-outbreak-prediction-using-Machine-Learning.git"
+---
+
+## Overview
+
+Disease Prediction Website is a machine learning-powered healthcare application designed to help users assess the risk of common diseases. The platform predicts **Heart Disease, Diabetes, and Parkinson's Disease** using trained ML models. Users can input health parameters in **English or Tamil**, and receive real-time predictions with downloadable reports, making healthcare guidance more accessible and user-friendly.
+
+## Problem
+
+Early detection of chronic diseases is essential, but many users lack quick and accessible screening tools. Traditional methods are time-consuming, often require expert consultation, and are generally English-centric. There was a need for a **multilingual, intuitive, and automated system** to provide preliminary disease risk assessments.
+
+## Solution
+
+We developed a web-based platform using **Random Forest** and **Support Vector Machine (SVM)** models for disease prediction. The system supports multilingual input, translating Tamil entries to English for processing. Users receive probability-based predictions for multiple conditions, and can download a report containing results and health guidance. The platform delivers real-time, interactive feedback through a **Streamlit interface**.
+
+## Key Features
+
+- **Multi-Disease Prediction** — Predicts likelihood of Heart Disease, Diabetes, and Parkinson's Disease using trained ML models.
+- **Machine Learning Models** — Random Forest and SVM algorithms optimized for reliable prediction across conditions.
+- **Multilingual Support** — Accepts input in English and Tamil to enhance accessibility.
+- **Interactive UI** — Streamlit-based interface for easy data entry and visualization.
+- **Probability Scores** — Displays likelihood for multiple conditions for each query.
+- **Downloadable Reports** — Generates user-friendly PDF reports summarizing predictions and health insights.
+- **Real-Time Inference** — Provides instant predictions with immediate visual feedback.
+
+## Technologies Used
+
+- **Python** — Core language for model development and backend logic.
+- **Scikit-learn** — Used for training and evaluating Random Forest and SVM classifiers.
+- **NLTK** — Natural language preprocessing and multilingual text handling.
+- **Pandas / NumPy** — Data cleaning, preprocessing, and feature engineering.
+- **Streamlit** — Frontend framework for interactive web application and deployment.
+- **Pickle** — Model serialization for production-ready deployment.
+
+## Challenges and Learnings
+
+Handling diverse input in natural language and maintaining consistent model accuracy were key challenges. Feature selection, preprocessing, and synonym mapping were critical for reliable disease prediction. Implementing multilingual support required integrating NLP translation pipelines to standardize symptom descriptions. This project strengthened skills in **healthcare AI, multilingual NLP, and end-to-end ML deployment**.
+
+## Outcome
+
+The platform achieved prediction accuracies of approximately **88% for Heart Disease**, **92% for Diabetes**, and **89% for Parkinson's Disease**. Multilingual accessibility, real-time predictions, and downloadable reports make it a practical tool for early disease screening and healthcare awareness across different linguistic communities.

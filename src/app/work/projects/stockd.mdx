@@ -1,0 +1,87 @@
+---
+title: "Stockd - Reservation System"
+publishedAt: "2026-04-30"
+summary: "Multi-warehouse inventory reservation system with real-time stock tracking and concurrency-safe reservations."
+
+images:
+  - "/images/projects/stockd/cover-01.jpg"
+  - "/images/projects/stockd/cover-02.jpg"
+  - "/images/projects/stockd/cover-03.jpg"
+  - "/images/projects/stockd/cover-04.jpg"
+  - "/images/projects/stockd/cover-05.gif"
+
+team:
+  - name: "Janani V"
+    role: "Full Stack Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/jananiv05/"
+
+tags:
+  - "Web Applications"
+
+
+link: "https://github.com/Janviswa/Stockd-reservation-system.git"
+---
+
+## Overview
+
+Stockd is a production-grade inventory reservation system designed to manage stock across multiple warehouses while preventing overselling during concurrent transactions. The platform provides real-time inventory tracking, intelligent reservation management, geo-aware warehouse allocation, and automated stock recovery mechanisms, ensuring accurate inventory control and operational reliability.
+
+## Problem
+
+Modern inventory systems must handle thousands of simultaneous reservation requests without creating stock inconsistencies. Traditional approaches often suffer from race conditions, duplicate reservations, overselling, and inefficient warehouse allocation. There is a need for a scalable reservation platform capable of maintaining inventory accuracy under high concurrency.
+
+## Solution
+
+Stockd addresses these challenges through a multi-warehouse reservation system built on PostgreSQL transactions, Redis-based idempotency, and real-time inventory synchronization. The platform uses row-level database locking and serializable transactions to guarantee that concurrent reservation requests are processed safely. Automated reservation expiry, stock release mechanisms, and geo-aware routing further improve inventory availability and operational efficiency.
+
+## Key Features
+
+- **Multi-Warehouse Inventory Management** — Tracks inventory across multiple warehouse locations.
+- **Inventory Reservation System** — Reserve, confirm, release, and manage stock reservations.
+- **Race Condition Prevention** — Uses PostgreSQL row-level locking and serializable transactions to prevent overselling.
+- **Idempotent API Operations** — Prevents duplicate reservations and confirmations using Redis-based idempotency keys.
+- **Automatic Reservation Expiry** — Releases expired reservations and restores stock availability.
+- **Geo-Aware Routing** — Allocates inventory from the most suitable warehouse location.
+- **Real-Time Dashboard** — Monitor inventory levels, reservations, warehouse status, and system activity.
+- **Concurrency Simulation** — Interactive demonstration of concurrent reservation handling and stock locking.
+- **Audit Logging** — Tracks reservation lifecycle events and inventory actions.
+
+## Technologies Used
+
+### Frontend
+
+- **Next.js 15** — Full-stack React framework with App Router.
+- **TypeScript** — Type-safe application development.
+- **Tailwind CSS** — Responsive UI design and styling.
+- **shadcn/ui** — Reusable UI components.
+- **Framer Motion** — Interactive animations and transitions.
+- **TanStack Query** — Real-time data fetching and auto-refresh.
+
+### Backend
+
+- **Next.js API Routes** — Server-side API development.
+- **Prisma ORM** — Database modeling and query management.
+- **Zod** — Request validation and schema enforcement.
+
+### Database & Caching
+
+- **PostgreSQL (Neon)** — Multi-warehouse inventory and reservation storage.
+- **Upstash Redis** — Idempotency management and caching.
+
+### Infrastructure
+
+- **Vercel** — Application hosting and scheduled cron jobs.
+- **Vercel Cron** — Automated reservation expiry and cleanup processes.
+
+## Challenges and Learnings
+
+The primary challenge was preventing race conditions when multiple users attempted to reserve the same inventory simultaneously. Implementing PostgreSQL row-level locking, serializable transactions, and Redis-based idempotency required careful system design to guarantee data consistency. The project strengthened skills in distributed systems, concurrency control, database transactions, caching strategies, and scalable backend architecture.
+
+## Outcome
+
+Stockd successfully delivers a reliable inventory reservation platform capable of handling concurrent requests without overselling or duplicate transactions. The system demonstrates production-grade reservation management, automated inventory recovery, and real-time stock visibility, showcasing practical expertise in full-stack development, database engineering, and scalable system design.
+
+## Key Learnings
+
+This project provided hands-on experience in transaction management, concurrency control, idempotent API design, Redis caching, database optimization, and production-scale application architecture. It also strengthened understanding of inventory management workflows and distributed system reliability.

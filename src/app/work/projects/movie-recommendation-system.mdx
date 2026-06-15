@@ -1,0 +1,73 @@
+---
+title: "Movie Recommendation System"
+publishedAt: "2025-04-25"
+summary: "Content-based movie recommendation system using machine learning and TMDB integration for personalized discovery."
+images:
+  - "/images/projects/movie-recommendation/cover-01.jpg"
+  - "/images/projects/movie-recommendation/cover-02.jpg"
+  - "/images/projects/movie-recommendation/cover-03.gif"
+team:
+  - name: "Janani V"
+    role: "AI Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/jananiv05/"
+tags:
+  - "Machine Learning"
+
+link: "https://github.com/Janviswa/Movie-Recommendation-System.git"
+---
+
+## Overview
+
+CineMatch is an AI-powered movie recommendation system that helps users discover movies tailored to their interests through content-based filtering. By analyzing genres, cast, crew, keywords, and movie descriptions, the system generates personalized recommendations and enriches the user experience with posters, ratings, trailers, and detailed movie information from TMDB and IMDb.
+
+## Problem
+
+With thousands of movies available across streaming platforms, finding relevant content can be overwhelming and time-consuming. Users often struggle to discover movies that match their preferences, highlighting the need for an intelligent recommendation system that simplifies movie exploration and improves content discovery.
+
+## Solution
+
+CineMatch addresses this challenge using a content-based recommendation engine built on TF-IDF vectorization and cosine similarity. The system processes movie metadata from the TMDB 5000 dataset, creates feature-rich representations, and identifies similar movies based on content characteristics. Integration with TMDB and OMDb APIs provides real-time posters, ratings, trailers, and additional movie details through an interactive Streamlit interface.
+
+## Key Features
+
+- **Smart Movie Recommendations** — Suggests similar movies using content-based filtering techniques.
+- **TF-IDF Similarity Engine** — Uses text vectorization and cosine similarity for recommendation generation.
+- **Movie Carousel** — Interactive banner showcasing popular movies.
+- **Dual Rating System** — Displays ratings from both TMDB and IMDb.
+- **Trailer Integration** — Provides direct access to movie trailers through YouTube links.
+- **Rich Movie Cards** — Displays posters, release year, overview, and ratings.
+- **Hover Effects** — Interactive poster effects revealing movie descriptions.
+- **Responsive UI** — Streamlit-based interface optimized for seamless user interaction.
+
+## Technologies Used
+
+### Machine Learning & Recommendation Engine
+
+- **Python** — Core programming language for recommendation logic and application development.
+- **Scikit-learn** — Implements TF-IDF vectorization and cosine similarity calculations.
+- **Pandas** — Data preprocessing, cleaning, and feature engineering.
+- **NumPy** — Numerical computations and matrix operations.
+
+### APIs & Data Sources
+
+- **TMDB API** — Retrieves movie posters, metadata, ratings, and trailers.
+- **OMDb API** — Provides IMDb ratings and additional movie information.
+- **TMDB 5000 Dataset** — Primary dataset used for recommendation generation.
+
+### Frontend & Deployment
+
+- **Streamlit** — Interactive web application framework and deployment platform.
+- **Requests** — API communication and external data retrieval.
+
+## Challenges and Learnings
+
+One of the primary challenges was generating accurate recommendations while efficiently processing large amounts of movie metadata. Building feature-rich movie representations and optimizing similarity calculations required careful preprocessing and feature selection. The project strengthened skills in recommendation systems, NLP-based text processing, API integration, and interactive web application development.
+
+## Outcome
+
+CineMatch successfully delivers personalized movie recommendations with rich visual content, ratings, and trailer integration. The system demonstrates the effectiveness of content-based filtering for movie discovery while providing an engaging user experience through an intuitive and interactive interface.
+
+## Key Learnings
+
+This project provided hands-on experience in building recommendation systems, implementing TF-IDF and cosine similarity algorithms, working with movie metadata, and integrating third-party APIs. It also enhanced skills in machine learning, data preprocessing, and developing user-centric AI applications.

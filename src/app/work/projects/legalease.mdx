@@ -1,0 +1,81 @@
+---
+title: "LegalEase AI – Legal Analysis & Drafting Platform"
+publishedAt: "2026-02-02"
+summary: "LLM-powered AI assistant for analysing, summarising, and drafting legal documents efficiently."
+images:
+  - "/images/projects/legalease/cover-01.jpg"
+  - "/images/projects/legalease/cover-02.jpg"
+  - "/images/projects/legalease/cover-03.jpg"
+  - "/images/projects/legalease/cover-04.gif"
+team:
+  - name: "Janani V"
+    role: "AI Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/jananiv05/"
+tags:
+  - "LLM & RAG"
+  - "Web Applications"
+
+link: "https://github.com/Janviswa/LegalEase-AI.git"
+---
+
+## Overview
+
+LegalEase AI is an AI-powered legal document analysis and drafting platform designed to simplify legal workflows for individuals and professionals. Powered by Groq's LLaMA 3.1 model, the platform enables users to upload contracts, agreements, and legal notices to receive risk assessments, clause summaries, fairness scores, and contextual AI assistance. It also supports legal document generation, secure authentication, and document management within a single platform.
+
+## Problem
+
+Legal documents are often lengthy, complex, and difficult for non-experts to understand. Reviewing contracts, identifying legal risks, and drafting compliant documents typically require professional expertise, making the process time-consuming and expensive. Traditional approaches also lack efficient tools for document analysis and legal research.
+
+## Solution
+
+LegalEase AI addresses these challenges through an AI-powered legal assistance platform that combines large language models, document processing, and secure workflow management. The system extracts and analyzes content from uploaded legal documents, generates contextual insights, identifies potential risks, and assists users with legal document drafting. By integrating AI-driven analysis, conversational assistance, and automated report generation into a single platform, LegalEase simplifies legal document review and improves accessibility to legal information.
+
+## Key Features
+
+- **Document Analysis** — Upload PDF or DOCX legal documents to receive clause breakdowns, risk assessments, fairness scores, and red-flag detection.
+- **Analysis Modes** — Supports Standard, Detailed, and Expert-level document analysis.
+- **Chat with Document** — Ask follow-up questions and receive context-aware responses based on uploaded documents.
+- **Legal Drafting** — Generate NDAs, rent agreements, employment contracts, and other legal documents using AI.
+- **Export Reports** — Download analysis reports in professional PDF and DOCX formats.
+- **Authentication** — Secure JWT-based authentication with email OTP password recovery.
+- **History Management** — Save, organize, and manage previous analyses and drafted documents.
+- **Email & Signing Requests** — Send password reset links and document signing requests via email.
+
+## Technologies Used
+
+### AI & Document Processing
+
+- **Groq (LLaMA 3.1)** — Legal document analysis, summarization, drafting, and question answering.
+- **PDFPlumber** — PDF text extraction and preprocessing.
+- **Python-Docx** — DOCX document generation.
+- **ReportLab** — PDF report generation.
+
+### Backend
+
+- **Python** — Core backend development and business logic.
+- **FastAPI** — REST API development and routing.
+- **Uvicorn** — ASGI server deployment.
+- **JWT Authentication** — Secure user authentication and authorization.
+
+### Frontend
+
+- **React 18** — Interactive user interface development.
+- **Vite** — Frontend build and development environment.
+- **Tailwind CSS** — Responsive UI design and styling.
+- **Lucide React** — Modern icon library.
+
+### Database & Infrastructure
+
+- **Supabase (PostgreSQL)** — User management and data storage.
+- **SMTP Services** — Email notifications and password recovery.
+- **Vercel** — Frontend hosting and deployment.
+- **Railway** — Backend hosting and deployment.  
+
+## Challenges and Learnings
+
+A major challenge was ensuring accurate and context-aware analysis for lengthy legal documents while maintaining fast response times. Optimizing prompts, handling large document uploads, and implementing secure authentication workflows required careful system design. The project strengthened skills in LLM integration, API development, cloud deployment, and full-stack AI application development.
+
+## Outcome
+
+LegalEase AI successfully delivers an end-to-end legal assistance platform capable of analysing, drafting, and managing legal documents. The system improves accessibility to legal information, reduces manual effort, and accelerates document review workflows through AI-powered automation and intelligent document understanding.
