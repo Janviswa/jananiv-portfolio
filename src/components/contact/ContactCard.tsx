@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useId } from "react";
 import { Column, Row, Text, Icon } from "@once-ui-system/core";
 import { WorldMapBackground } from "./WorldMapBackground";
 
@@ -11,10 +11,14 @@ interface ContactDetail {
   href: string | null;
 }
 
+const REVEAL_EVENT = "contact-card-reveal";
+
 export function ContactCard({ detail }: { detail: ContactDetail }) {
+  const cardId = useId();
   const [hovered, setHovered] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
 
   // Mobile (touch, no hover) gets swipe-to-reveal; laptop/desktop keeps the hover flip.
@@ -26,6 +30,16 @@ export function ContactCard({ detail }: { detail: ContactDetail }) {
     return () => mq.removeEventListener("change", handleChange);
   }, []);
 
+  // When another card is revealed, this one flips back to its normal state.
+  useEffect(() => {
+    const handleOtherReveal = (e: Event) => {
+      const otherId = (e as CustomEvent<{ id: string }>).detail?.id;
+      if (otherId !== cardId) setRevealed(false);
+    };
+    window.addEventListener(REVEAL_EVENT, handleOtherReveal);
+    return () => window.removeEventListener(REVEAL_EVENT, handleOtherReveal);
+  }, [cardId]);
+
   const isLocation = detail.label === "Location";
   const Wrapper = detail.href ? "a" : "div";
   const wrapperProps = detail.href
@@ -34,8 +48,14 @@ export function ContactCard({ detail }: { detail: ContactDetail }) {
 
   const isFlipped = isTouchDevice ? revealed : hovered;
 
+  const reveal = () => {
+    setRevealed(true);
+    window.dispatchEvent(new CustomEvent(REVEAL_EVENT, { detail: { id: cardId } }));
+  };
+
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    setHasInteracted(true);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
@@ -44,7 +64,7 @@ export function ContactCard({ detail }: { detail: ContactDetail }) {
     const deltaY = e.touches[0].clientY - touchStart.current.y;
     // Horizontal swipe reveals the back of the card.
     if (Math.abs(deltaX) > 24 && Math.abs(deltaX) > Math.abs(deltaY)) {
-      setRevealed(true);
+      reveal();
     }
   };
 
@@ -57,13 +77,18 @@ export function ContactCard({ detail }: { detail: ContactDetail }) {
     if (!revealed) {
       // First tap just reveals the back of the card instead of navigating away.
       e.preventDefault();
-      setRevealed(true);
+      reveal();
       return;
     }
     // Card is already revealed — let this tap navigate to the link normally.
   };
 
+  // Deterministic per-card stagger so the hint nudges don't all fire in sync.
+  const hintDelay = (detail.label.length % 5) * 0.18;
+  const showHint = isTouchDevice && !revealed && !hasInteracted;
+
   return (
+    <>
     <Wrapper
       {...(wrapperProps as any)}
       onMouseEnter={() => !isTouchDevice && setHovered(true)}
@@ -84,6 +109,8 @@ export function ContactCard({ detail }: { detail: ContactDetail }) {
         borderRadius: "var(--radius-m)",
         isolation: "isolate",
         touchAction: "pan-y",
+        animation: showHint ? "contactCardPeek 4.4s ease-in-out infinite" : "none",
+        animationDelay: showHint ? `${hintDelay}s` : "0s",
       }}
     >
       <div
@@ -191,5 +218,17 @@ export function ContactCard({ detail }: { detail: ContactDetail }) {
         </Column>
       </div>
     </Wrapper>
+
+    <style>{`
+        @keyframes contactCardPeek {
+          0%   { transform: translateX(0); }
+          4%   { transform: translateX(-9px); }
+          8%   { transform: translateX(7px); }
+          12%  { transform: translateX(-3px); }
+          16%  { transform: translateX(0); }
+          100% { transform: translateX(0); }
+        }
+      `}</style>
+    </>
   );
 }

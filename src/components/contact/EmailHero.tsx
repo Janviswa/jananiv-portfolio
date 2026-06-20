@@ -1,14 +1,17 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useId } from "react";
 import { Column, Row, Text, Icon } from "@once-ui-system/core";
 
 const EMAIL = "jananiviswa05@gmail.com";
+const REVEAL_EVENT = "contact-card-reveal";
 
 export function EmailHero() {
+  const cardId = useId();
   const [hovered, setHovered] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const [copied, setCopied] = useState(false);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
 
@@ -21,6 +24,16 @@ export function EmailHero() {
     return () => mq.removeEventListener("change", handleChange);
   }, []);
 
+  // When another contact card is revealed, this one flips back to its normal state.
+  useEffect(() => {
+    const handleOtherReveal = (e: Event) => {
+      const otherId = (e as CustomEvent<{ id: string }>).detail?.id;
+      if (otherId !== cardId) setRevealed(false);
+    };
+    window.addEventListener(REVEAL_EVENT, handleOtherReveal);
+    return () => window.removeEventListener(REVEAL_EVENT, handleOtherReveal);
+  }, [cardId]);
+
   const isFlipped = isTouchDevice ? revealed : hovered;
 
   const handleCopy = () => {
@@ -30,8 +43,14 @@ export function EmailHero() {
     window.location.href = `mailto:${EMAIL}`;
   };
 
+  const reveal = () => {
+    setRevealed(true);
+    window.dispatchEvent(new CustomEvent(REVEAL_EVENT, { detail: { id: cardId } }));
+  };
+
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+    setHasInteracted(true);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
@@ -40,7 +59,7 @@ export function EmailHero() {
     const deltaY = e.touches[0].clientY - touchStart.current.y;
     // Horizontal swipe reveals the back of the card.
     if (Math.abs(deltaX) > 24 && Math.abs(deltaX) > Math.abs(deltaY)) {
-      setRevealed(true);
+      reveal();
     }
   };
 
@@ -51,11 +70,13 @@ export function EmailHero() {
   const handleClick = () => {
     if (isTouchDevice && !revealed) {
       // First tap just reveals the back of the card instead of jumping to mail.
-      setRevealed(true);
+      reveal();
       return;
     }
     handleCopy();
   };
+
+  const showHint = isTouchDevice && !revealed && !hasInteracted;
 
   return (
     <div
@@ -73,6 +94,7 @@ export function EmailHero() {
         cursor: "pointer",
         perspective: "1000px",
         touchAction: "pan-y",
+        animation: showHint ? "contactCardPeek 4.4s ease-in-out infinite" : "none",
       }}
     >
       <div
@@ -204,6 +226,14 @@ export function EmailHero() {
           0% { transform: scale(1); opacity: 0.7; }
           70% { transform: scale(2.4); opacity: 0; }
           100% { transform: scale(2.4); opacity: 0; }
+        }
+        @keyframes contactCardPeek {
+          0%   { transform: translateX(0); }
+          4%   { transform: translateX(-9px); }
+          8%   { transform: translateX(7px); }
+          12%  { transform: translateX(-3px); }
+          16%  { transform: translateX(0); }
+          100% { transform: translateX(0); }
         }
       `}</style>
     </div>
