@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Column, Row, Text, Icon } from "@once-ui-system/core";
 import { WorldMapBackground } from "./WorldMapBackground";
 
@@ -13,6 +13,18 @@ interface ContactDetail {
 
 export function ContactCard({ detail }: { detail: ContactDetail }) {
   const [hovered, setHovered] = useState(false);
+  const [revealed, setRevealed] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+
+  // Mobile (touch, no hover) gets swipe-to-reveal; laptop/desktop keeps the hover flip.
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: none) and (pointer: coarse)");
+    setIsTouchDevice(mq.matches);
+    const handleChange = (e: MediaQueryListEvent) => setIsTouchDevice(e.matches);
+    mq.addEventListener("change", handleChange);
+    return () => mq.removeEventListener("change", handleChange);
+  }, []);
 
   const isLocation = detail.label === "Location";
   const Wrapper = detail.href ? "a" : "div";
@@ -20,11 +32,46 @@ export function ContactCard({ detail }: { detail: ContactDetail }) {
     ? { href: detail.href, target: "_blank", rel: "noopener noreferrer" }
     : {};
 
+  const isFlipped = isTouchDevice ? revealed : hovered;
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!touchStart.current) return;
+    const deltaX = e.touches[0].clientX - touchStart.current.x;
+    const deltaY = e.touches[0].clientY - touchStart.current.y;
+    // Horizontal swipe reveals the back of the card.
+    if (Math.abs(deltaX) > 24 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      setRevealed(true);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    touchStart.current = null;
+  };
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (!isTouchDevice || !detail.href) return;
+    if (!revealed) {
+      // First tap just reveals the back of the card instead of navigating away.
+      e.preventDefault();
+      setRevealed(true);
+      return;
+    }
+    // Card is already revealed — let this tap navigate to the link normally.
+  };
+
   return (
     <Wrapper
       {...(wrapperProps as any)}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={() => !isTouchDevice && setHovered(true)}
+      onMouseLeave={() => !isTouchDevice && setHovered(false)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onClick={handleClick}
       style={{
         display: "block",
         width: "100%",
@@ -36,6 +83,7 @@ export function ContactCard({ detail }: { detail: ContactDetail }) {
         overflow: "hidden",
         borderRadius: "var(--radius-m)",
         isolation: "isolate",
+        touchAction: "pan-y",
       }}
     >
       <div
@@ -46,7 +94,7 @@ export function ContactCard({ detail }: { detail: ContactDetail }) {
           minHeight: "160px",
           transformStyle: "preserve-3d",
           transition: "transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1)",
-          transform: hovered ? "rotateY(180deg)" : "rotateY(0deg)",
+          transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
         }}
       >
         {/* ── FRONT ── */}

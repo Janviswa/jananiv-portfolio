@@ -1,13 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Column, Row, Text, Icon } from "@once-ui-system/core";
 
 const EMAIL = "jananiviswa05@gmail.com";
 
 export function EmailHero() {
   const [hovered, setHovered] = useState(false);
+  const [revealed, setRevealed] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [copied, setCopied] = useState(false);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+
+  // Mobile (touch, no hover) gets swipe-to-reveal; laptop/desktop keeps the hover flip.
+  useEffect(() => {
+    const mq = window.matchMedia("(hover: none) and (pointer: coarse)");
+    setIsTouchDevice(mq.matches);
+    const handleChange = (e: MediaQueryListEvent) => setIsTouchDevice(e.matches);
+    mq.addEventListener("change", handleChange);
+    return () => mq.removeEventListener("change", handleChange);
+  }, []);
+
+  const isFlipped = isTouchDevice ? revealed : hovered;
 
   const handleCopy = () => {
     navigator.clipboard?.writeText(EMAIL).catch(() => {});
@@ -16,11 +30,41 @@ export function EmailHero() {
     window.location.href = `mailto:${EMAIL}`;
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!touchStart.current) return;
+    const deltaX = e.touches[0].clientX - touchStart.current.x;
+    const deltaY = e.touches[0].clientY - touchStart.current.y;
+    // Horizontal swipe reveals the back of the card.
+    if (Math.abs(deltaX) > 24 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      setRevealed(true);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    touchStart.current = null;
+  };
+
+  const handleClick = () => {
+    if (isTouchDevice && !revealed) {
+      // First tap just reveals the back of the card instead of jumping to mail.
+      setRevealed(true);
+      return;
+    }
+    handleCopy();
+  };
+
   return (
     <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onClick={handleCopy}
+      onMouseEnter={() => !isTouchDevice && setHovered(true)}
+      onMouseLeave={() => !isTouchDevice && setHovered(false)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onClick={handleClick}
       style={{
         display: "block",
         width: "100%",
@@ -28,6 +72,7 @@ export function EmailHero() {
         flex: 1,
         cursor: "pointer",
         perspective: "1000px",
+        touchAction: "pan-y",
       }}
     >
       <div
@@ -38,7 +83,7 @@ export function EmailHero() {
           minHeight: "160px",
           transformStyle: "preserve-3d",
           transition: "transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1)",
-          transform: hovered ? "rotateY(180deg)" : "rotateY(0deg)",
+          transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
         }}
       >
         {/* ── FRONT ── */}

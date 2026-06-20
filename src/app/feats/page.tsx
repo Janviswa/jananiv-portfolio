@@ -581,8 +581,11 @@ export default function Feats() {
             width: 100% !important;
             height: 32px !important;
             writing-mode: horizontal-tb !important;
+            border-right: none !important;
+            border-bottom: 0.5px solid var(--neutral-alpha-weak);
           }
           .pub-card > div:first-child span {
+            writing-mode: horizontal-tb !important;
             transform: none !important;
           }
         }
