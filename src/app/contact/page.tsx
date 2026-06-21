@@ -24,6 +24,9 @@ export async function generateMetadata() {
   });
 }
 
+// TODO: replace with your actual resume link (e.g. Google Drive "Anyone with the link can view" share URL)
+const RESUME_URL = "https://drive.google.com/file/d/10zOUGWDUtOkExiyqRNF5MAmjD0kBPTZ8/view?usp=sharing";
+
 const contactDetails = [
   {
     label: "Location",
@@ -149,13 +152,15 @@ export default function Contact() {
           </MagneticButton>
           <MagneticButton>
             <Button
-              href="https://www.linkedin.com/in/jananiv05/"
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               variant="secondary"
-              prefixIcon="linkedin"
+              prefixIcon="download"
               size="m"
               arrowIcon
             >
-              Connect on LinkedIn
+              Resume
             </Button>
           </MagneticButton>
         </Row>
