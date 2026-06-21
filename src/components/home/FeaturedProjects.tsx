@@ -14,11 +14,11 @@ const featured = [
     github: "https://github.com/Janviswa",
   },
   {
-    slug: "assistly",
-    title: "Assistly",
+    slug: "TicketFlow",
+    title: "TicketFlow",
     description: "AI-powered ticket routing and support assistant using LLMs and RAG.",
     tags: ["LLM", "RAG", "FastAPI"],
-    image: "/images/projects/assistly/cover-01.jpg",
+    image: "/images/projects/TicketFlow/cover-01.jpg",
     github: "https://github.com/Janviswa",
   },
   {

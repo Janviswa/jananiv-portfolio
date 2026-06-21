@@ -3,10 +3,10 @@ import { HomeProjectsClient } from "@/components/home/HomeProjectsClient";
 
 // Fixed slugs — always show these 4 regardless of publishedAt date
 const FEATURED_SLUGS = [
+  "ticketflow",
   "bloodprint-id",
   "legalease",
   "hand-gesture-game",
-  "movie-recommendation-system",
 ];
 
 export function HomeProjects() {

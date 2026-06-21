@@ -11,6 +11,7 @@ interface ProjectsProps {
 
 // Explicit display order — edit this list to reorder projects on the work page
 const PROJECT_ORDER = [
+  "ticketflow",
   "bloodprint-id",
   "legalease",
   "stockd",
@@ -19,8 +20,7 @@ const PROJECT_ORDER = [
   "hand-gesture-game",
   "squid-game-red-light",
   "smart-diaper-pod",
-  "smart-riding-helmet",
-  "ticketflow",
+  "smart-riding-helmet"
 ];
 
 export function Projects({ range, exclude, showFilter = false, relatedTags }: ProjectsProps) {

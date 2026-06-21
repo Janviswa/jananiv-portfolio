@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Janani",
   lastName: "V",
   name: `Janani V`,
-  role: "AI Engineer",
+  role: "LLMs • RAG • GenAI",
   avatar: "/images/avatar.jpg",
   email: "jananiviswa05@gmail.com",
   location: "Asia/Kolkata",
@@ -49,9 +49,9 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name} – AI Engineer Portfolio`,
+  title: `${person.name} – Portfolio`,
   description:
-    "Portfolio of Janani V, AI Engineer specializing in LLMs, Machine Learning, and Generative AI.",
+    "Portfolio showcasing projects in LLMs, Generative AI, NLP, RAG systems, and AI-powered applications.",
   headline: (
     <>
       Engineering Ideas
@@ -134,7 +134,7 @@ const about: About = {
         projectLabel: "View Project – Ticketflow",
         images: [
           {
-            src: "/images/projects/assistly/cover-01.jpg",
+            src: "/images/projects/TicketFlow/cover-01.jpg",
             alt: "Ticketflow project preview",
             width: 16,
             height: 9,

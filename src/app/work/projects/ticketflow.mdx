@@ -1,58 +1,67 @@
 ---
 title: "TicketFlow"
-publishedAt: "2025-03-01"
-summary: "AI-powered ticket routing and support assistant using LLMs."
+publishedAt: "2026-03-13"
+summary: "AI-powered IT ticket management platform with intelligent routing, risk analysis, and RAG-based support assistance using LLMs."
+
 images:
-  - "/images/projects/assistly/cover-01.jpg"
+  - "/images/projects/TicketFlow/cover-01.jpg"
+  - "/images/projects/TicketFlow/cover-02.gif"
+  - "/images/projects/TicketFlow/cover-03.gif"
+  - "/images/projects/TicketFlow/cover-04.jpg"
+  - "/images/projects/TicketFlow/cover-05.jpg"
+
 team:
   - name: "Janani V"
     role: "AI Engineer"
     avatar: "/images/avatar.jpg"
     linkedIn: "https://www.linkedin.com/in/jananiv05/"
 tags:
-  - "LLM"
-  - "RAG"
-  - "GenAI"
-link: "https://github.com/Janviswa"
+  - "LLM & RAG"
+
+link: "https://github.com/Janviswa/TicketFlow.git"
 ---
 
 ## Overview
 
-Assistly is an AI-powered ticket routing and support assistant that leverages Large Language Models to intelligently classify, prioritise, and route support tickets — reducing manual workload and improving resolution time.
+TicketFlow is an AI-powered IT support platform that automates ticket classification, risk assessment, team assignment, and support assistance using Large Language Models (LLMs), reducing manual triage effort and improving resolution efficiency.
 
 ## Problem
 
-Support teams receive high volumes of tickets with varying complexity, priority, and domain. Manual triage is slow, inconsistent, and burns agent capacity on issues that could be automated.
+IT support teams handle large volumes of tickets across multiple departments, making manual categorization, prioritization, and routing time-consuming and inconsistent. Delays in ticket assignment can increase resolution times and impact business operations.
 
 ## Solution
 
-Built an LLM-powered backend that reads incoming tickets, classifies intent and urgency, routes to the correct team, and generates draft responses — automating the first-line triage process.
+Built a full-stack AI-powered ticket management system that analyzes incoming tickets, automatically identifies the appropriate department, predicts risk level and priority, assigns tickets to support agents, and provides context-aware assistance through a Retrieval-Augmented Generation (RAG) pipeline.
 
 ## Key Features
 
-- **Intelligent Classification**: Categorises tickets by issue type, urgency, and department using LLM inference
-- **Auto-Routing**: Routes tickets to the appropriate team based on classification output
-- **Draft Response Generation**: Generates suggested responses for agents to review and send
-- **RAG Pipeline**: Uses retrieval-augmented generation to ground responses in knowledge base articles
-- **Dashboard**: Real-time overview of ticket volumes, categories, and routing decisions
+- **AI Ticket Classification**: Automatically categorizes tickets into departments such as IT, Security, Finance, HR, and Network.
+- **Risk & Priority Assessment**: Uses AI-driven analysis to determine ticket severity and business impact.
+- **Smart Ticket Assignment**: Automatically routes tickets to the most suitable support team or agent.
+- **AI Support Assistant**: Provides context-aware responses using a RAG pipeline powered by ChromaDB.
+- **Ticket Summarization**: Generates concise summaries for faster issue understanding.
+- **Role-Based Dashboard**: Separate interfaces for Employees, Support Agents, and Administrators.
+- **Knowledge Base Search**: Retrieves relevant solutions from stored support documentation.
 
 ## Technologies Used
 
-- **Python**: Backend development
-- **LangChain**: LLM orchestration and RAG pipeline
-- **OpenAI API**: Language model inference
-- **FastAPI**: REST API backend
-- **PostgreSQL**: Ticket storage and retrieval
-- **React**: Frontend dashboard
+- **Next.js & TypeScript** – Frontend development
+- **FastAPI** – Backend REST APIs
+- **PostgreSQL** – Ticket and user management
+- **Llama 4 Scout (Groq)** – Ticket analysis and reasoning
+- **DistilBERT** – Ticket classification and NLP processing
+- **ChromaDB** – Vector database for RAG
+- **Sentence Transformers** – Embedding generation
+- **Docker** – Containerized deployment
 
 ## Challenges
 
-Ensuring consistent classification quality across diverse ticket phrasings required careful prompt engineering and few-shot examples. Grounding responses in the knowledge base via RAG significantly reduced hallucination.
+Designing reliable AI workflows for ticket classification, risk scoring, and department routing required extensive prompt engineering and validation. Ensuring accurate retrieval from the knowledge base while minimizing irrelevant results was critical for improving response quality.
 
 ## Results
 
-Automated the triage of a significant portion of incoming tickets, reducing average routing time and freeing agent capacity for complex issues.
+Automated ticket triage, risk assessment, and routing for support requests, reducing manual effort and enabling faster issue resolution through AI-assisted workflows.
 
 ## Key Learnings
 
-RAG-augmented LLM responses are far more reliable and trustworthy than vanilla generation for support contexts. Structured prompting with output schemas made downstream processing reliable.
+Combining LLM-based reasoning with RAG significantly improves the accuracy and reliability of support responses. Structured AI outputs and retrieval grounding are essential for building production-ready enterprise AI applications.
