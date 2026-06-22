@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Janani",
   lastName: "V",
   name: `Janani V`,
-  role: "LLMs • RAG • GenAI",
+  role: "AI Engineer",
   avatar: "/images/avatar.jpg",
   email: "jananiviswa05@gmail.com",
   location: "Asia/Kolkata",
@@ -38,6 +38,12 @@ const social: Social = [
     essential: true,
   },
   {
+    name: "Hugging Face",
+    icon: "huggingface",
+    link: "https://huggingface.co/Janani-V",
+    essential: true,
+  },
+  {
     name: "Email",
     icon: "email",
     link: `mailto:jananiviswa05@gmail.com`,
@@ -49,9 +55,9 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name} – Portfolio`,
+  title: `${person.name} – AI Engineer Portfolio`,
   description:
-    "Portfolio showcasing projects in LLMs, Generative AI, NLP, RAG systems, and AI-powered applications.",
+    "Portfolio of Janani V, AI Engineer specializing in LLMs, Machine Learning, and Generative AI.",
   headline: (
     <>
       Engineering Ideas
@@ -118,17 +124,15 @@ const about: About = {
         role: "AI Backend Engineer Intern · Chennai",
         achievements: [
           <>
-            Built an <strong>AI-powered Ticket Management System</strong>, reducing{" "}
-            <strong>manual support effort</strong> by ~40% through{" "}
-            <strong>workflow automation</strong> and{" "}
-            <strong>intelligent ticket prioritization</strong>.
-          </>,
-          <>
-            Integrated <strong>LLM-based automation</strong> for{" "}
-            <strong>response drafting</strong> and <strong>ticket routing</strong>, improving{" "}
-            <strong>resolution efficiency</strong> and{" "}
-            <strong>streamlining backend operations</strong>.
-          </>,
+          Architected an <strong>AI-powered IT ticket management platform</strong> using{" "}
+          <strong>FastAPI, Llama 4 Scout, and ChromaDB</strong> with{" "}
+          <strong>RAG-based support assistance</strong> and <strong>36+ REST APIs</strong>.
+        </>,
+        <>
+          Achieved <strong>76% routing accuracy</strong> across 100 test tickets by automating{" "}
+          <strong>triage, sentiment analysis, and department routing</strong> using{" "}
+          <strong>DistilBERT and Llama 4 Scout</strong>.
+        </>,
         ],
         projectLink: "/work/ticketflow",
         projectLabel: "View Project – Ticketflow",
@@ -147,14 +151,16 @@ const about: About = {
         role: "AI & Data Analytics Intern · Remote",
         achievements: [
           <>
-            Developed a <strong>multilingual disease prediction system</strong> for Heart Disease,
-            Diabetes, and Parkinson's Disease using <strong>Random Forest</strong> and{" "}
-            <strong>SVM</strong> models, achieving <strong>90%+ prediction accuracy</strong>.
-          </>,
-          <>
-            Implemented English and Tamil language support with automated report generation,
-            delivering a <strong>production-ready</strong> healthcare analytics solution.
-          </>,
+          Built a <strong>multilingual (English & Tamil) disease prediction system</strong> for{" "}
+          <strong>Heart Disease, Diabetes, and Parkinson's</strong> using{" "}
+          <strong>Random Forest and SVM</strong>, achieving <strong>89%+ accuracy</strong>.
+        </>,
+        <>
+          Automated <strong>multilingual PDF report generation</strong> across{" "}
+          <strong>50+ patient scenarios</strong>, eliminating manual{" "}
+          <strong>translation and formatting steps</strong>.
+        </>,
+
         ],
         projectLink: "/work/checkup-buddy",
         projectLabel: "View Project – Checkup Buddy",
@@ -173,15 +179,15 @@ const about: About = {
         role: "Artificial Intelligence Intern · Remote",
         achievements: [
           <>
-            Built a <strong>sentiment analysis system</strong> using <strong>Python</strong>,{" "}
-            <strong>NLTK</strong>, and <strong>supervised machine learning</strong> to classify{" "}
-            <strong>customer reviews</strong> and <strong>textual feedback</strong>.
-          </>,
-          <>
-            Improved <strong>prediction performance</strong> through{" "}
-            <strong>preprocessing</strong>, <strong>feature extraction</strong>, and{" "}
-            <strong>model tuning</strong>, achieving an <strong>87% F1-score</strong>.
-          </>,
+          Built a <strong>sentiment analysis system</strong> using{" "}
+          <strong>Python, NLTK, and supervised machine learning</strong> to classify{" "}
+          <strong>customer reviews and textual feedback</strong>.
+        </>,
+        <>
+          Improved prediction performance through{" "}
+          <strong>preprocessing, feature extraction, and model tuning</strong>,{" "}
+          achieving an <strong>87% F1-score</strong>.
+        </>,
         ],
         images: [],
       },
@@ -191,14 +197,15 @@ const about: About = {
         role: "Python with Data Science Intern · Chennai",
         achievements: [
           <>
-            Performed <strong>data preprocessing</strong>, <strong>EDA</strong>, and feature
-            analysis to extract meaningful insights from datasets.
-          </>,
-          <>
-            Built and evaluated <strong>Random Forest</strong> models for prediction tasks,
-            achieving ~72% accuracy on the validation set through feature engineering and parameter
-            tuning.
-          </>,
+          Analyzed a <strong>9,500-record restaurant dataset</strong> to uncover{" "}
+          <strong>cuisine trends</strong> and <strong>delivery impact on ratings</strong>{" "}
+          using <strong>EDA and feature analysis</strong>.
+        </>,
+        <>
+          Built and tuned a <strong>Random Forest model</strong> through{" "}
+          <strong>feature engineering and hyperparameter optimization</strong>,{" "}
+          achieving <strong>~75% validation accuracy</strong>.
+        </>,
         ],
         images: [],
       },
@@ -216,7 +223,7 @@ const about: About = {
               Bachelor of Technology – Artificial Intelligence and Data Science
             </Text>
             <br />
-            <strong>CGPA: 8.07 / 10.0</strong> &nbsp;·&nbsp; November 2022 – May 2026
+            <strong>CGPA: 8.07 / 10</strong> &nbsp;·&nbsp; November 2022 – May 2026
             <br />
             <br />
             <Text onBackground="neutral-weak" variant="body-default-s">

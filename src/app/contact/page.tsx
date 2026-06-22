@@ -25,7 +25,7 @@ export async function generateMetadata() {
 }
 
 // TODO: replace with your actual resume link (e.g. Google Drive "Anyone with the link can view" share URL)
-const RESUME_URL = "https://drive.google.com/file/d/10zOUGWDUtOkExiyqRNF5MAmjD0kBPTZ8/view?usp=sharing";
+const RESUME_URL = "https://drive.google.com/file/d/1kHgA5u-wjxrutWBGi6nTndCgLj4FMhP5/view?usp=drive_link";
 
 const contactDetails = [
   {
