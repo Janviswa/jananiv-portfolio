@@ -14,6 +14,7 @@ export function EmailHero() {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [copied, setCopied] = useState(false);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const didSwipe = useRef(false);
 
   // Mobile (touch, no hover) gets swipe-to-reveal; laptop/desktop keeps the hover flip.
   useEffect(() => {
@@ -57,19 +58,22 @@ export function EmailHero() {
     if (!touchStart.current) return;
     const deltaX = e.touches[0].clientX - touchStart.current.x;
     const deltaY = e.touches[0].clientY - touchStart.current.y;
-    // Horizontal swipe reveals the back of the card.
     if (Math.abs(deltaX) > 24 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      didSwipe.current = true;
       reveal();
     }
   };
 
   const handleTouchEnd = () => {
     touchStart.current = null;
+    setTimeout(() => { didSwipe.current = false; }, 50);
   };
 
   const handleClick = () => {
-    if (isTouchDevice && !revealed) {
-      // First tap just reveals the back of the card instead of jumping to mail.
+    if (!isTouchDevice) { handleCopy(); return; }
+    if (didSwipe.current) return;
+    if (!revealed) {
+      // Tap flips the card — don't trigger mailto yet.
       reveal();
       return;
     }

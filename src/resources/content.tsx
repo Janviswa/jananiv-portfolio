@@ -5,7 +5,7 @@ const person: Person = {
   firstName: "Janani",
   lastName: "V",
   name: `Janani V`,
-  role: "AI Engineer",
+  role: "LLMs • RAG • GenAI",
   avatar: "/images/avatar.jpg",
   email: "jananiviswa05@gmail.com",
   location: "Asia/Kolkata",
@@ -55,9 +55,9 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name} – AI Engineer Portfolio`,
+  title: `${person.name} – Portfolio`,
   description:
-    "Portfolio of Janani V, AI Engineer specializing in LLMs, Machine Learning, and Generative AI.",
+    "Portfolio showcasing projects in LLMs, Generative AI, NLP, RAG systems, and AI-powered applications.",
   headline: (
     <>
       Engineering Ideas
@@ -110,7 +110,7 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I'm Janani, an AI builder who enjoys turning ideas into intelligent products. I work with LLMs, NLP, Generative AI, and RAG systems, constantly exploring how AI can solve real-world problems. When I'm not experimenting with new models, I'm building solutions that bridge the gap between cutting-edge research and practical applications.
+        I'm Janani, an AI builder who turns ideas into intelligent products. I work with LLMs, NLP, Generative AI, RAG systems, and fine-tuning, exploring how AI can solve real-world problems. When I'm not experimenting with new models, I'm building solutions that bridge the gap between cutting-edge research and practical applications.
       </>
     ),
   },

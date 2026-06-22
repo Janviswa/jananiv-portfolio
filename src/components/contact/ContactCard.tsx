@@ -58,29 +58,36 @@ export function ContactCard({ detail }: { detail: ContactDetail }) {
     setHasInteracted(true);
   };
 
+  const didSwipe = useRef(false);
+
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!touchStart.current) return;
     const deltaX = e.touches[0].clientX - touchStart.current.x;
     const deltaY = e.touches[0].clientY - touchStart.current.y;
-    // Horizontal swipe reveals the back of the card.
     if (Math.abs(deltaX) > 24 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      didSwipe.current = true;
       reveal();
     }
   };
 
   const handleTouchEnd = () => {
     touchStart.current = null;
+    // Reset swipe flag after a short delay so the click handler can check it.
+    setTimeout(() => { didSwipe.current = false; }, 50);
   };
 
   const handleClick = (e: React.MouseEvent) => {
-    if (!isTouchDevice || !detail.href) return;
+    if (!isTouchDevice) return;
+    // If this click was triggered by the end of a swipe, don't process it.
+    if (didSwipe.current) { e.preventDefault(); return; }
     if (!revealed) {
-      // First tap just reveals the back of the card instead of navigating away.
+      // Tap flips the card — prevent navigation until it's revealed.
       e.preventDefault();
       reveal();
       return;
     }
-    // Card is already revealed — let this tap navigate to the link normally.
+    // Card is already revealed — navigate normally (or do nothing if no href).
+    if (!detail.href) e.preventDefault();
   };
 
   // Deterministic per-card stagger so the hint nudges don't all fire in sync.
