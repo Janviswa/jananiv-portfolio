@@ -76,7 +76,7 @@ const certifications = [
   {
     name: "Introduction to Python",
     issuer: "SoloLearn",
-    year: "Oct 2026",
+    year: "Oct 2023",
     link: "https://www.sololearn.com/certificates/CC-4MRSDNLY",
     brand: "sololearn",
     image: "/images/certs/Introduction to Python.jpg",
@@ -84,7 +84,7 @@ const certifications = [
   {
     name: "Python Intermediate",
     issuer: "SoloLearn",
-    year: "Oct 2026",
+    year: "Oct 2023",
     link: "https://www.sololearn.com/certificates/CC-DZQCLALK",
     brand: "sololearn",
     image: "/images/certs/Python Intermediate.jpg",
@@ -92,7 +92,7 @@ const certifications = [
   {
     name: "Python Developer",
     issuer: "SoloLearn",
-    year: "Nov 2025",
+    year: "Nov 2023",
     link: "https://www.sololearn.com/certificates/CC-ULR0I85O",
     brand: "sololearn",
     image: "/images/certs/Python Developer.jpg",

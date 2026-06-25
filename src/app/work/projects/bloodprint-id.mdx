@@ -21,7 +21,7 @@ link: "https://github.com/Janviswa/BloodPrint-ID.git"
 
 ## Overview
 
-BloodPrint ID is a full-stack AI web application that analyzes fingerprint images to classify fingerprint patterns as Loop, Whorl, or Arch using deep learning. Based on published dermatoglyphic research, the system provides statistical blood group correlations and generates detailed analysis reports. Designed for educational and research purposes, the platform combines computer vision, machine learning, and modern web technologies to deliver an interactive user experience.
+BloodPrint ID is a full-stack AI web application that classifies fingerprint patterns (Loop, Whorl, and Arch) from uploaded images using an **EfficientNetB0** deep learning model trained on the **SOCOFing dataset (~6,000 images)**, achieving **86% validation accuracy on 1,199 test images**. Based on findings from **four published dermatoglyphic research studies**, the system provides statistical blood group correlations with confidence scoring and generates detailed PDF analysis reports. Designed for educational and research purposes, the platform is deployed on **Vercel and Render**.
 
 ## Problem
 
@@ -29,17 +29,18 @@ Fingerprint patterns have been studied for decades for their potential relations
 
 ## Solution
 
-BloodPrint ID addresses this challenge through a computer vision pipeline powered by an EfficientNetB0-based deep learning model. The system processes uploaded fingerprint images, classifies fingerprint patterns, calculates image quality metrics, and generates blood group likelihood estimates based on published dermatoglyphic studies. Results are presented through an intuitive web interface with downloadable PDF reports and analysis history tracking.
+BloodPrint ID addresses this challenge through a computer vision pipeline powered by an **EfficientNetB0-based deep learning model** trained on ~6,000 SOCOFing fingerprint images. The system processes uploaded fingerprint images, classifies patterns with **86% validation accuracy**, extracts quality metrics (clarity, ridge density, and edge ratio), and generates blood group likelihood estimates with confidence scoring based on four published dermatoglyphic studies. The model is optimized using **TensorFlow Lite** for efficient deployment, with results presented through an intuitive web interface featuring downloadable PDF reports and analysis history tracking.
 
 ## Key Features
 
-- **Fingerprint Pattern Classification** — Classifies fingerprints into Loop, Whorl, and Arch patterns using EfficientNetB0.
-- **Blood Group Correlation Analysis** — Provides statistical blood group likelihood based on published research studies.
-- **Image Quality Assessment** — Calculates clarity score, ridge density, and edge ratio metrics.
+- **Fingerprint Pattern Classification** — Classifies fingerprints into Loop, Whorl, and Arch patterns using EfficientNetB0 trained on ~6,000 SOCOFing images, achieving 86% validation accuracy on 1,199 test images.
+- **Blood Group Correlation Analysis** — Provides statistical blood group likelihood with confidence scoring based on findings from four published dermatoglyphic research studies.
+- **Image Quality Assessment** — Extracts clarity score, ridge density, and edge ratio metrics for each fingerprint.
+- **TFLite Optimized Deployment** — Model converted to TensorFlow Lite for efficient inference in production.
 - **PDF Report Generation** — Generates professional downloadable reports for each analysis.
 - **Analysis History** — Stores and manages previous fingerprint analyses.
 - **Secure Authentication** — JWT-based user authentication and account management.
-- **Responsive User Interface** — Modern React-based interface with dark mode support.
+- **Cloud Deployment** — Frontend hosted on Vercel, backend on Render.
 
 ## Technologies Used
 
@@ -73,11 +74,11 @@ BloodPrint ID addresses this challenge through a computer vision pipeline powere
 
 ## Challenges and Learnings
 
-One of the primary challenges was extracting meaningful fingerprint features while maintaining classification accuracy across varying image qualities. Optimizing image preprocessing, implementing quality assessment metrics, and deploying an efficient TFLite model required extensive experimentation. The project strengthened skills in computer vision, deep learning, full-stack development, and AI model deployment.
+One of the primary challenges was maintaining classification accuracy across varying image qualities in the SOCOFing dataset. Optimizing image preprocessing, extracting meaningful quality metrics (clarity, ridge density, edge ratio), and converting the model to TFLite for efficient production deployment required extensive experimentation. The project strengthened skills in computer vision, deep learning, full-stack development, and AI model deployment.
 
 ## Outcome
 
-BloodPrint ID successfully classifies fingerprint patterns and provides research-based blood group correlation insights through an intuitive web application. The project demonstrates the practical integration of computer vision, deep learning, and full-stack development while serving as an educational platform for exploring dermatoglyphic research.
+BloodPrint ID successfully classifies fingerprint patterns with **86% validation accuracy** on 1,199 test images and provides research-based blood group correlation insights with confidence scoring derived from four dermatoglyphic studies. The project demonstrates practical integration of computer vision, deep learning, and full-stack development, deployed end-to-end on Vercel and Render.
 
 ## Research References
 

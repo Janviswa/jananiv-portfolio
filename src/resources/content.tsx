@@ -179,14 +179,15 @@ const about: About = {
         role: "Artificial Intelligence Intern · Remote",
         achievements: [
           <>
-          Built a <strong>sentiment analysis system</strong> using{" "}
-          <strong>Python, NLTK, and supervised machine learning</strong> to classify{" "}
-          <strong>customer reviews and textual feedback</strong>.
+          Built a <strong>movie review sentiment analysis system</strong> using{" "}
+          <strong>Python, Random Forest, and TF-IDF vectorization</strong> on the{" "}
+          <strong>IMDB Top 1000 dataset</strong> to classify movie overviews as{" "}
+          <strong>positive or negative</strong> based on IMDB ratings.
         </>,
         <>
-          Improved prediction performance through{" "}
-          <strong>preprocessing, feature extraction, and model tuning</strong>,{" "}
-          achieving an <strong>87% F1-score</strong>.
+          Applied <strong>text preprocessing, TF-IDF feature extraction</strong> (5,000 features),{" "}
+          and <strong>SMOTE</strong> for class imbalance handling, achieving{" "}
+          <strong>87% accuracy</strong> on the test set.
         </>,
         ],
         images: [],

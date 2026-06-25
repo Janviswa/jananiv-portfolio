@@ -23,7 +23,7 @@ link: "https://github.com/Janviswa/TicketFlow.git"
 
 ## Overview
 
-TicketFlow is an AI-powered IT support platform that automates ticket classification, risk assessment, team assignment, and support assistance using Large Language Models (LLMs), reducing manual triage effort and improving resolution efficiency.
+TicketFlow is an AI-powered IT support platform built with FastAPI, Llama 4 Scout, and ChromaDB that automates ticket classification, risk assessment, team assignment, and support assistance using Large Language Models (LLMs) across the full ticket lifecycle, reducing manual triage effort and improving resolution efficiency.
 
 ## Problem
 
@@ -31,13 +31,13 @@ IT support teams handle large volumes of tickets across multiple departments, ma
 
 ## Solution
 
-Built a full-stack AI-powered ticket management system that analyzes incoming tickets, automatically identifies the appropriate department, predicts risk level and priority, assigns tickets to support agents, and provides context-aware assistance through a Retrieval-Augmented Generation (RAG) pipeline.
+Built a full-stack AI-powered ticket management system with 36+ REST APIs that analyzes incoming tickets, automatically identifies the appropriate department across 5 teams, predicts risk level and priority, assigns tickets to support agents, and provides context-aware assistance through a Retrieval-Augmented Generation (RAG) pipeline powered by ChromaDB.
 
 ## Key Features
 
-- **AI Ticket Classification**: Automatically categorizes tickets into departments such as IT, Security, Finance, HR, and Network.
+- **AI Ticket Classification**: Automatically categorizes tickets into departments such as IT, Security, Finance, HR, and Network using DistilBERT and Llama 4 Scout, achieving 76% accuracy across 100 tickets and 5 departments.
 - **Risk & Priority Assessment**: Uses AI-driven analysis to determine ticket severity and business impact.
-- **Smart Ticket Assignment**: Automatically routes tickets to the most suitable support team or agent.
+- **Smart Ticket Assignment**: Automatically routes tickets to the most suitable support team or agent via JWT-authenticated routing.
 - **AI Support Assistant**: Provides context-aware responses using a RAG pipeline powered by ChromaDB.
 - **Ticket Summarization**: Generates concise summaries for faster issue understanding.
 - **Role-Based Dashboard**: Separate interfaces for Employees, Support Agents, and Administrators.
@@ -46,7 +46,7 @@ Built a full-stack AI-powered ticket management system that analyzes incoming ti
 ## Technologies Used
 
 - **Next.js & TypeScript** – Frontend development
-- **FastAPI** – Backend REST APIs
+- **FastAPI** – Backend REST APIs (36+ endpoints)
 - **PostgreSQL** – Ticket and user management
 - **Llama 4 Scout (Groq)** – Ticket analysis and reasoning
 - **DistilBERT** – Ticket classification and NLP processing
@@ -56,11 +56,11 @@ Built a full-stack AI-powered ticket management system that analyzes incoming ti
 
 ## Challenges
 
-Designing reliable AI workflows for ticket classification, risk scoring, and department routing required extensive prompt engineering and validation. Ensuring accurate retrieval from the knowledge base while minimizing irrelevant results was critical for improving response quality.
+Designing reliable AI workflows for ticket classification, risk scoring, and department routing required extensive prompt engineering and validation. Ensuring accurate retrieval from the knowledge base while minimizing irrelevant results was critical for improving response quality. Handling class imbalance and edge cases across 5 departments with a limited ticket dataset also required careful model tuning.
 
 ## Results
 
-Automated ticket triage, risk assessment, and routing for support requests, reducing manual effort and enabling faster issue resolution through AI-assisted workflows.
+Automated ticket triage, sentiment analysis, and department routing across 100 tickets and 5 departments using DistilBERT and Llama 4 Scout, achieving 76% accuracy. Reduced manual triage effort through 36+ REST APIs covering the full ticket lifecycle from classification to resolution.
 
 ## Key Learnings
 

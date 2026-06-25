@@ -21,7 +21,7 @@ link: "https://github.com/Janviswa/LegalEase-AI.git"
 
 ## Overview
 
-LegalEase AI is an AI-powered legal document analysis and drafting platform designed to simplify legal workflows for individuals and professionals. Powered by Groq's LLaMA 3.1 model, the platform enables users to upload contracts, agreements, and legal notices to receive risk assessments, clause summaries, fairness scores, and contextual AI assistance. It also supports legal document generation, secure authentication, and document management within a single platform.
+LegalEase AI is an AI-powered legal contract analysis and drafting platform that processes **PDF and DOCX contracts** to identify potential risks, explain key clauses, and generate fairness scores across **three levels of review** (Standard, Detailed, and Expert). Powered by **Groq's LLaMA 3.1**, the platform reduces manual contract review effort by approximately **60%** through automated clause extraction, risk detection, and concise summaries — allowing users to focus on verifying results rather than reviewing entire documents.
 
 ## Problem
 
@@ -29,24 +29,24 @@ Legal documents are often lengthy, complex, and difficult for non-experts to und
 
 ## Solution
 
-LegalEase AI addresses these challenges through an AI-powered legal assistance platform that combines large language models, document processing, and secure workflow management. The system extracts and analyzes content from uploaded legal documents, generates contextual insights, identifies potential risks, and assists users with legal document drafting. By integrating AI-driven analysis, conversational assistance, and automated report generation into a single platform, LegalEase simplifies legal document review and improves accessibility to legal information.
+LegalEase AI addresses these challenges through an AI-powered legal assistance platform combining **Groq's LLaMA 3.1**, document processing, and secure workflow management. The system extracts and analyses content from uploaded PDF and DOCX legal documents, performs automated clause extraction and risk detection, generates fairness scores, and produces concise contract summaries — reducing manual review effort by approximately **60%**. By integrating AI-driven analysis, conversational assistance, and automated report generation into a single platform, LegalEase simplifies legal document review and improves accessibility to legal information.
 
 ## Key Features
 
-- **Document Analysis** — Upload PDF or DOCX legal documents to receive clause breakdowns, risk assessments, fairness scores, and red-flag detection.
-- **Analysis Modes** — Supports Standard, Detailed, and Expert-level document analysis.
+- **Contract Analysis** — Upload PDF or DOCX contracts to receive clause breakdowns, risk identification, fairness scores, and red-flag detection across three review levels: Standard, Detailed, and Expert.
+- **Automated Risk Detection** — Identifies potential risks and explains key clauses using Groq's LLaMA 3.1, reducing manual review effort by ~60%.
 - **Chat with Document** — Ask follow-up questions and receive context-aware responses based on uploaded documents.
 - **Legal Drafting** — Generate NDAs, rent agreements, employment contracts, and other legal documents using AI.
 - **Export Reports** — Download analysis reports in professional PDF and DOCX formats.
 - **Authentication** — Secure JWT-based authentication with email OTP password recovery.
-- **History Management** — Save, organize, and manage previous analyses and drafted documents.
+- **History Management** — Save, organise, and manage previous analyses and drafted documents.
 - **Email & Signing Requests** — Send password reset links and document signing requests via email.
 
 ## Technologies Used
 
 ### AI & Document Processing
 
-- **Groq (LLaMA 3.1)** — Legal document analysis, summarization, drafting, and question answering.
+- **Groq (LLaMA 3.1)** — Contract analysis, clause extraction, risk detection, summarisation, drafting, and question answering.
 - **PDFPlumber** — PDF text extraction and preprocessing.
 - **Python-Docx** — DOCX document generation.
 - **ReportLab** — PDF report generation.
@@ -70,12 +70,12 @@ LegalEase AI addresses these challenges through an AI-powered legal assistance p
 - **Supabase (PostgreSQL)** — User management and data storage.
 - **SMTP Services** — Email notifications and password recovery.
 - **Vercel** — Frontend hosting and deployment.
-- **Railway** — Backend hosting and deployment.  
+- **Railway** — Backend hosting and deployment.
 
 ## Challenges and Learnings
 
-A major challenge was ensuring accurate and context-aware analysis for lengthy legal documents while maintaining fast response times. Optimizing prompts, handling large document uploads, and implementing secure authentication workflows required careful system design. The project strengthened skills in LLM integration, API development, cloud deployment, and full-stack AI application development.
+A major challenge was ensuring accurate and context-aware analysis for lengthy legal documents while maintaining fast response times. Optimising prompts for reliable clause extraction, risk detection, and fairness scoring across three review levels — while handling large PDF and DOCX uploads — required careful system design. The project strengthened skills in LLM integration, API development, cloud deployment, and full-stack AI application development.
 
 ## Outcome
 
-LegalEase AI successfully delivers an end-to-end legal assistance platform capable of analysing, drafting, and managing legal documents. The system improves accessibility to legal information, reduces manual effort, and accelerates document review workflows through AI-powered automation and intelligent document understanding.
+LegalEase AI successfully delivers an end-to-end legal assistance platform that processes PDF and DOCX contracts to identify risks, explain clauses, and generate fairness scores across three review levels. By automating contract analysis with Groq's LLaMA 3.1, the platform reduces manual review effort by approximately **60%**, allowing users to focus on verifying AI-generated insights rather than reading entire documents from scratch.
