@@ -37,3 +37,404 @@
         align-self: center;
     }
 }
+
+/* ── About Me: terminal window ── */
+.terminal {
+    width: 100%;
+    margin-bottom: var(--static-space-40);
+    border-radius: var(--radius-l);
+    border: 1px solid var(--neutral-alpha-medium);
+    background: rgba(38, 40, 46, 0.55);
+    backdrop-filter: blur(8px);
+    overflow: hidden;
+    box-shadow: 0 12px 40px -20px rgba(0, 0, 0, 0.6);
+    transition: var(--transition-micro-medium);
+
+    &:hover {
+        border-color: var(--brand-alpha-medium);
+        box-shadow: 0 14px 48px -18px var(--brand-solid-medium);
+    }
+}
+
+.terminalBar {
+    display: flex;
+    align-items: center;
+    padding: var(--static-space-8) var(--static-space-16);
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--neutral-alpha-weak);
+}
+
+.dots {
+    display: flex;
+    gap: 8px;
+    flex: 1;
+
+    i {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: block;
+    }
+}
+
+.terminalName {
+    font-family: var(--font-code, ui-monospace, SFMono-Regular, Menlo, monospace);
+    font-size: 0.8125rem;
+    color: var(--neutral-on-background-weak);
+}
+
+.terminalSpacer {
+    flex: 1;
+}
+
+.terminalBody {
+    padding: var(--static-space-16) var(--static-space-20) var(--static-space-20);
+    font-family: var(--font-code, ui-monospace, SFMono-Regular, Menlo, monospace);
+}
+
+.prompt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8125rem;
+    color: var(--neutral-on-background-weak);
+    margin-bottom: var(--static-space-12);
+
+    &:last-child {
+        margin-bottom: 0;
+        margin-top: var(--static-space-12);
+    }
+}
+
+.promptSign {
+    color: var(--brand-on-background-medium);
+    font-weight: 700;
+}
+
+.docstring {
+    padding-left: var(--static-space-16);
+    border-left: 2px solid var(--brand-alpha-medium);
+}
+
+.quote {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--brand-on-background-weak);
+    opacity: 0.8;
+    margin: var(--static-space-4) 0 var(--static-space-8);
+
+    &:last-child {
+        margin: var(--static-space-8) 0 0;
+    }
+}
+
+/* paragraphs keep the site's normal font for readability */
+.docText {
+    font-family: var(--font-body, inherit);
+    color: var(--neutral-on-background-medium);
+    line-height: 1.6;
+}
+
+.cursor {
+    display: inline-block;
+    width: 9px;
+    height: 1.1em;
+    background: var(--brand-solid-medium);
+    animation: cursorBlink 1.1s steps(1) infinite;
+}
+
+@keyframes cursorBlink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+}
+
+@media (max-width: breakpoints.$s) {
+    .terminalBody {
+        padding: var(--static-space-16);
+    }
+}
+
+/* ── Studies card: animations only ── */
+.studyCard {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+    // light sweep across the card
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255, 255, 255, 0.07) 50%,
+            transparent 65%
+        );
+        transform: translateX(-120%);
+    }
+
+    // accent line that grows down the left edge
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(180deg, var(--brand-solid-medium), transparent);
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: var(--neutral-alpha-strong);
+        box-shadow: 0 16px 40px -20px rgba(0, 0, 0, 0.7);
+
+        &::after {
+            transform: translateX(120%);
+            transition: transform 0.9s ease;
+        }
+        &::before {
+            transform: scaleY(1);
+        }
+    }
+}
+
+.studyName {
+    transition: transform 0.35s ease;
+}
+.studyCard:hover .studyName {
+    transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .studyCard,
+    .studyCard::before,
+    .studyCard::after,
+    .studyName {
+        transition: none !important;
+    }
+}
+
+/* ── Terminal: light mode ── */
+:global([data-theme="light"]) {
+    .terminal {
+        background: rgba(255, 255, 255, 0.75);
+        border-color: rgba(0, 0, 0, 0.12);
+        box-shadow: 0 12px 36px -20px rgba(0, 0, 0, 0.25);
+
+        &:hover {
+            border-color: var(--brand-alpha-medium);
+            box-shadow: 0 14px 40px -18px rgba(37, 99, 235, 0.35);
+        }
+    }
+
+    .terminalBar {
+        background: rgba(0, 0, 0, 0.04);
+        border-bottom-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .terminalName,
+    .prompt {
+        color: rgba(0, 0, 0, 0.55);
+    }
+
+    .promptSign {
+        color: var(--brand-on-background-strong);
+    }
+
+    .docText {
+        color: rgba(0, 0, 0, 0.78);
+    }
+
+    .quote {
+        color: var(--brand-on-background-medium);
+    }
+
+    .cursor {
+        background: rgba(0, 0, 0, 0.75);
+    }
+}
+
+/* ── About Me: arrow pointing to the photo ── */
+.terminalWrap {
+    position: relative;
+    z-index: 0; // own stacking context so the hit-area below stays behind the card
+    width: 100%;
+
+    // invisible hover zone around the card (extends mostly to the left, toward the photo)
+    &::before {
+        content: "";
+        position: absolute;
+        inset: -20px -40px -40px -180px;
+        z-index: -1;
+    }
+}
+
+/* ---------- desktop (hover): arrow drawn in a fixed overlay ---------- */
+.arrowLayer {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    pointer-events: none;
+    color: var(--brand-on-background-medium);
+}
+
+.arrowSvg {
+    position: absolute;
+    inset: 0;
+    overflow: visible;
+}
+
+.arrowPath,
+.arrowHead,
+.mArrowPath,
+.mArrowHead {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0; // fully hidden until animated (no stray dot from the round caps)
+}
+
+.arrowPath,
+.mArrowPath {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+}
+
+.arrowLabel,
+.mobileLabel {
+    position: absolute;
+    font-family: "Caveat", "Segoe Script", "Bradley Hand", cursive;
+    font-size: 1.05rem;
+    white-space: nowrap;
+    opacity: 0;
+    color: inherit;
+}
+
+.arrowLabel {
+    transform: rotate(-5deg) translateY(4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.arrowPath {
+    transition: stroke-dashoffset 0.3s ease, opacity 0s 0.3s;
+}
+
+.arrowHead {
+    transition: opacity 0.15s ease;
+}
+
+.arrowLayer[data-on="true"] {
+    .arrowPath {
+        opacity: 1;
+        stroke-dashoffset: 0;
+        transition: stroke-dashoffset 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0s;
+    }
+    .arrowHead {
+        opacity: 1;
+        transition: opacity 0.2s ease 0.55s;
+    }
+    .arrowLabel {
+        opacity: 1;
+        transform: rotate(-5deg) translateY(0);
+        transition: opacity 0.3s ease 0.4s, transform 0.4s ease 0.4s;
+    }
+}
+
+/* ---------- touch / small screens ---------- */
+.mobileTag {
+    display: none;
+}
+
+@media (hover: none), (max-width: breakpoints.$s) {
+    .arrowLayer {
+        display: none;
+    }
+
+    .terminalWrap {
+        margin-top: var(--static-space-40);
+
+        &::before {
+            display: none;
+        }
+    }
+
+    .mobileTag {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 0;
+        pointer-events: none;
+        color: var(--brand-on-background-medium);
+    }
+
+    .chip {
+        position: absolute;
+        right: var(--static-space-16);
+        top: -34px;
+        z-index: 2;
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px var(--page-background, #0b0d12), 0 0 0 5px var(--brand-alpha-medium);
+        transform: scale(0);
+        transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .mobileArrow {
+        position: absolute;
+        right: 74px;
+        top: -38px;
+        overflow: visible;
+    }
+
+    .mobileLabel {
+        right: 128px;
+        top: -52px;
+        transform: rotate(-5deg) translateY(4px);
+    }
+
+    .terminalWrap[data-seen="true"] {
+        .chip {
+            transform: scale(1);
+        }
+        .mArrowPath {
+            opacity: 1;
+            stroke-dashoffset: 0;
+            transition:
+                stroke-dashoffset 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s,
+                opacity 0s 0.35s;
+        }
+        .mArrowHead {
+            opacity: 1;
+            transition: opacity 0.2s ease 0.85s;
+        }
+        .mobileLabel {
+            opacity: 1;
+            transform: rotate(-5deg) translateY(0);
+            transition: opacity 0.3s ease 0.3s, transform 0.4s ease 0.3s;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .arrowPath,
+    .arrowHead,
+    .arrowLabel,
+    .chip,
+    .mArrowPath,
+    .mArrowHead,
+    .mobileLabel {
+        transition: none !important;
+    }
+}

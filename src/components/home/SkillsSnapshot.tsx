@@ -6,40 +6,29 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 
 const skills = [
   {
-    label: "AI & Machine Learning",
+    label: "Generative AI & Agentic Systems",
     icon: "brain",
-    detail: "Supervised, unsupervised & deep learning",
-    color: "var(--brand-background-strong)",
+    detail: "LLMs, RAG, LangChain, LangGraph, MCP",
   },
   {
-    label: "LLMs & GenAI",
+    label: "Machine Learning & Data Science",
     icon: "rocket",
-    detail: "LangChain, RAG pipelines, prompt engineering",
-    color: "var(--brand-background-strong)",
+    detail: "Scikit-learn, TensorFlow, PyTorch, Pandas",
   },
   {
-    label: "Natural Language Processing",
-    icon: "chat",
-    detail: "NLTK, Transformers, text classification",
-    color: "var(--brand-background-strong)",
-  },
-  {
-    label: "Computer Vision",
-    icon: "eye",
-    detail: "TensorFlow, image classification, detection",
-    color: "var(--brand-background-strong)",
-  },
-  {
-    label: "Web Development",
+    label: "Programming & Backend",
     icon: "code",
-    detail: "React, Next.js, FastAPI, Streamlit",
-    color: "var(--brand-background-strong)",
+    detail: "Python, SQL, FastAPI, Flask, REST APIs",
   },
   {
-    label: "Developer Tools",
+    label: "Databases & Data Management",
+    icon: "book",
+    detail: "PostgreSQL, MySQL, MongoDB",
+  },
+  {
+    label: "Developer Tools & DevOps",
     icon: "cpu",
-    detail: "Git, Docker, PostgreSQL",
-    color: "var(--brand-background-strong)",
+    detail: "Git, GitHub, Docker, Kubernetes, Prometheus",
   },
 ];
 
@@ -49,7 +38,7 @@ function SkillCard({ skill }: { skill: (typeof skills)[0] }) {
   return (
     <a
       href="/skills"
-      style={{ textDecoration: "none" }}
+      style={{ textDecoration: "none", display: "block", height: "100%" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -65,12 +54,13 @@ function SkillCard({ skill }: { skill: (typeof skills)[0] }) {
             ? "1px solid var(--brand-border-medium)"
             : "1px solid var(--neutral-border-weak)",
           boxShadow: hovered
-            ? `0 0 20px var(--brand-background-medium)`
+            ? "0 0 20px var(--brand-background-medium)"
             : "none",
           transition: "all 0.3s ease",
           transform: hovered ? "translateY(-2px)" : "none",
           cursor: "pointer",
           height: "100%",
+          boxSizing: "border-box",
         }}
       >
         <div
@@ -89,9 +79,11 @@ function SkillCard({ skill }: { skill: (typeof skills)[0] }) {
         >
           <Icon name={skill.icon as any} onBackground="brand-medium" size="m" />
         </div>
+
         <Text variant="label-default-m" onBackground="neutral-strong">
           {skill.label}
         </Text>
+
         <Text variant="body-default-xs" onBackground="neutral-weak">
           {skill.detail}
         </Text>
@@ -103,7 +95,14 @@ function SkillCard({ skill }: { skill: (typeof skills)[0] }) {
 export function SkillsSnapshot() {
   return (
     <Column fillWidth gap="l">
-      <Row fillWidth horizontal="between" vertical="end" paddingX="4" wrap gap="12">
+      <Row
+        fillWidth
+        horizontal="between"
+        vertical="end"
+        paddingX="4"
+        wrap
+        gap="12"
+      >
         <Column gap="4">
           <Text variant="label-default-s" onBackground="brand-medium">
             EXPERTISE
@@ -112,6 +111,7 @@ export function SkillsSnapshot() {
             Skills Snapshot
           </Heading>
         </Column>
+
         <a
           href="/skills"
           style={{
@@ -128,13 +128,13 @@ export function SkillsSnapshot() {
       </Row>
 
       <div
+        className="skills-grid"
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
           gap: "16px",
           width: "100%",
         }}
-        className="skills-grid"
       >
         {skills.map((skill, i) => (
           <ScrollReveal

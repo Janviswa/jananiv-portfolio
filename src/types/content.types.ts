@@ -17,8 +17,8 @@ export type Person = {
   lastName: string;
   /** The name you want to display, allows variations like nicknames */
   name: string;
-  /** Role or job title */
-  role: string;
+  /** Role or job title (optional) */
+  role?: string;
   /** Path to avatar image */
   avatar: string;
   /** Email address */

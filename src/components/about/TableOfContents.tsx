@@ -21,6 +21,15 @@ interface TableOfContentsProps {
 const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) => {
   const [activeId, setActiveId] = useState<string | null>(null);
 
+  // Map every id (section title or sub-item) to the section that owns it,
+  // so a section stays highlighted while any of its sub-items is in view.
+  const parentOf: Record<string, string> = {};
+  for (const section of structure) {
+    parentOf[section.title] = section.title;
+    for (const item of section.items) parentOf[item] = section.title;
+  }
+  const activeSection = activeId ? parentOf[activeId] ?? activeId : null;
+
   const scrollTo = (id: string, offset: number) => {
     // Set active immediately on click — don't wait for scroll event
     setActiveId(id);
@@ -93,7 +102,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
       {structure
         .filter((section) => section.display)
         .map((section, sectionIndex) => {
-          const isActive = activeId === section.title;
+          const isActive = activeSection === section.title;
           return (
             <Column key={sectionIndex} gap="12">
               <Flex

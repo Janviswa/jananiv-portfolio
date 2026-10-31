@@ -12,6 +12,7 @@ const feats = [
     visual: (
       /* Real certificate image preview — matches actual Claude 101 cert */
       <div
+        className="fp-cert"
         style={{
           position: "relative",
           width: "100%",
@@ -21,6 +22,8 @@ const feats = [
           overflow: "hidden",
         }}
       >
+        {/* Shine sweep on hover */}
+        <div className="fp-cert-shine" aria-hidden />
         {/* Beige cert background */}
         <div
           style={{
@@ -37,6 +40,7 @@ const feats = [
         ].map((s, i) => (
           <div
             key={i}
+            className={i === 0 ? "fp-cert-corner fp-cert-corner-tl" : "fp-cert-corner fp-cert-corner-br"}
             style={{
               position: "absolute",
               width: "12px",
@@ -48,6 +52,7 @@ const feats = [
         ))}
         {/* Cert content */}
         <div
+          className="fp-cert-content"
           style={{
             position: "absolute",
             inset: 0,
@@ -87,6 +92,7 @@ const feats = [
         </div>
         {/* Verified ribbon */}
         <div
+          className="fp-cert-ribbon"
           style={{
             position: "absolute",
             top: "8px",
@@ -263,6 +269,7 @@ const feats = [
 
 function FeatCard({ feat }: { feat: (typeof feats)[0] }) {
   const [hovered, setHovered] = useState(false);
+  const isCert = feat.label === "Certifications";
 
   return (
     <a
@@ -276,19 +283,24 @@ function FeatCard({ feat }: { feat: (typeof feats)[0] }) {
         gap="s"
         padding="l"
         radius="l"
-        style={{
-          background: hovered
-            ? "var(--neutral-background-medium)"
-            : "var(--neutral-background-weak)",
-          border: hovered
-            ? "1px solid var(--brand-border-medium)"
-            : "1px solid var(--neutral-border-weak)",
-          boxShadow: hovered ? `0 0 28px var(--brand-background-medium)` : "none",
-          transition: "all 0.3s ease",
-          transform: hovered ? "translateY(-3px)" : "none",
-          cursor: "pointer",
-          height: "100%",
-        }}
+        className={isCert ? "fp-cert-card" : undefined}
+        style={
+          isCert
+            ? { cursor: "pointer", height: "100%" }
+            : {
+                background: hovered
+                  ? "var(--neutral-background-medium)"
+                  : "var(--neutral-background-weak)",
+                border: hovered
+                  ? "1px solid var(--brand-border-medium)"
+                  : "1px solid var(--neutral-border-weak)",
+                boxShadow: hovered ? `0 0 28px var(--brand-background-medium)` : "none",
+                transition: "all 0.3s ease",
+                transform: hovered ? "translateY(-3px)" : "none",
+                cursor: "pointer",
+                height: "100%",
+              }
+        }
       >
         {feat.visual}
 

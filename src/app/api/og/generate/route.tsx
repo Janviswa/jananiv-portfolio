@@ -88,17 +88,19 @@ export async function GET(request: Request) {
             >
               {person.name}
             </span>
-            <span
-              style={{
-                fontSize: "2.5rem",
-                lineHeight: "2.5rem",
-                whiteSpace: "pre-wrap",
-                textWrap: "balance",
-                opacity: "0.6",
-              }}
-            >
-              {person.role}
-            </span>
+            {person.role && (
+              <span
+                style={{
+                  fontSize: "2.5rem",
+                  lineHeight: "2.5rem",
+                  whiteSpace: "pre-wrap",
+                  textWrap: "balance",
+                  opacity: "0.6",
+                }}
+              >
+                {person.role}
+              </span>
+            )}
           </div>
         </div>
       </div>

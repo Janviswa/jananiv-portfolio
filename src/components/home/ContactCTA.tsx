@@ -141,9 +141,7 @@ export function ContactCTA() {
                 onBackground="neutral-weak"
                 align="center"
               >
-                Open to internships, collaborations,
-                and opportunities in AI and software
-                engineering. Feel free to reach out.
+                Open to AI engineering roles, internships, and meaningful collaborations. Feel free to connect.
               </Text>
             </Column>
           </RevealFx>

@@ -1,0 +1,69 @@
+---
+title: "Prompt Playground"
+publishedAt: "2026-08-09"
+summary: "Compares up to five prompting techniques, evaluates LLM responses, and identifies the best approach."
+
+images:
+  - "/images/projects/prompt-playground/cover-01.png"
+  - "/images/projects/prompt-playground/cover-02.png"
+  - "/images/projects/prompt-playground/cover-03.png"
+  - "/images/projects/prompt-playground/cover-04.gif"
+
+team:
+  - name: "Janani V"
+    role: "AI Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/jananiv05/"
+
+tags:
+  - "LLM & RAG"
+  - "Web Applications"
+
+link: "https://github.com/Janviswa/Prompt-Playground.git"
+---
+
+## Overview
+
+Prompt Playground is an interactive platform that demonstrates how different prompt engineering techniques influence LLM responses. Users can submit a single question, experiment with multiple prompting strategies, and compare generated outputs to understand how prompt design affects response quality.
+
+## Problem
+
+Prompt engineering techniques are often learned through documentation and theoretical examples, making it difficult to understand their practical impact. Without a consistent way to compare outputs, users may struggle to determine which prompting strategy works best for a particular task.
+
+## Solution
+
+Developed an interactive prompt experimentation platform that transforms a single user query into multiple prompts using different engineering techniques. Each prompt is processed by the same LLM under consistent generation settings, allowing users to compare responses, inspect the exact prompts, evaluate output quality, and identify the most suitable technique for their needs.
+
+## Key Features
+
+- **14 Prompt Engineering Techniques:** Experiment with Basic, Persona, Role, Structured, Few-shot, Zero-shot, Chain-of-Thought, Constraint, Output Formatting, Reflection, Self-Consistency, ReAct, Delimiter, and Step-by-Step prompting.
+- **Interactive Prompt Selection:** Enter a question and select up to five prompting techniques to generate responses.
+- **Prompt Inspection:** View the exact prompt used for each technique alongside its generated response.
+- **Side-by-Side Comparison:** Compare multiple AI outputs through a dedicated comparison interface.
+- **Response Evaluation:** Score responses out of 100 based on quality criteria such as completeness, clarity, readability, and structure.
+- **Winner and Runner-Up Analysis:** Identify the highest-scoring responses and explain their strengths, limitations, and suitable use cases.
+- **Performance Metrics:** Examine response latency, token usage, and output length.
+- **Exportable Reports:** Download prompt experiments and comparison results in Markdown, TXT, or JSON.
+- **History and Learning Resources:** Revisit previous experiments and explore explanations of individual prompting techniques.
+- **Responsive Interface:** Use a clean, ChatGPT-inspired interface with light and dark themes.
+
+## Technologies Used
+
+- **Next.js / React and TypeScript** – Interactive frontend and responsive user interface.
+- **Tailwind CSS and shadcn/ui** – Styling and reusable interface components.
+- **Python and FastAPI** – Backend API, prompt generation, and experiment orchestration.
+- **Groq API** – LLM inference for generating responses.
+- **Prompt Templates** – Reusable templates implementing the supported prompting techniques.
+- **Evaluation and Metrics** – Response scoring, latency measurement, and token analysis.
+
+## Challenges
+
+A key challenge was designing a fair comparison process in which the model and generation settings remain consistent while the prompt technique changes. Evaluating responses across multiple quality dimensions also required a consistent scoring approach. Another challenge was coordinating multiple LLM requests efficiently while maintaining a responsive interface and presenting results in an easy-to-understand format.
+
+## Results
+
+Built an interactive prompt engineering platform that enables users to compare up to five prompting techniques for a single question. The application combines prompt inspection, response comparison, quantitative scoring, winner analysis, performance metrics, and downloadable reports in one workflow.
+
+## Key Learnings
+
+This project strengthened my understanding of prompt design, LLM inference, and response evaluation. It demonstrated how different instructions, examples, constraints, and output formats can influence generated responses. It also reinforced that no single prompting technique is universally best; effectiveness depends on the task, evaluation criteria, and intended audience.

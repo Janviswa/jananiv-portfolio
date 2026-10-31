@@ -20,27 +20,62 @@ export async function generateMetadata() {
 
 const skillGroups = [
   {
-    title: "AI & Generative AI",
+    title: "Generative AI, LLMs & Agentic Systems",
     icon: "brain",
     description:
-      "Building intelligent systems using LLMs, NLP, RAG, and Generative AI technologies.",
+      "Building LLM-powered applications, retrieval pipelines, and agentic workflows for real-world problems.",
     technologies: [
-      { name: "LLMs", icon: "brain" },
-      { name: "Fine-Tuning", icon: "cpu" },
       { name: "RAG", icon: "rocket" },
-      { name: "NLP", icon: "chat" },
-      { name: "Transformers", icon: "huggingface" },
-      { name: "BERT", icon: "code" },
       { name: "LangChain", icon: "langchain" },
-      { name: "Hugging Face", icon: "huggingface" },
+      { name: "LangGraph", icon: "code" },
+      { name: "LangSmith", icon: "code" },
       { name: "Claude API", icon: "anthropic" },
+      { name: "Ollama", icon: "cpu" },
+      { name: "MCP", icon: "code" },
+      { name: "Hugging Face", icon: "huggingface" },
     ],
-    projects: ["LegalEase", "TicketFlow"],
+    projects: ["Kybernaut", "RAGVault", "TicketFlow", "LegalEase"],
     certifications: [
-      { name: "Claude 101", link: "https://verify.skilljar.com/c/9ifid4g2yrdw" },
+      {
+        name: "Building with Claude API",
+        link: "https://verify.skilljar.com/c/ot9edhr9tqup",
+      },
+      {
+        name: "Claude 101",
+        link: "https://verify.skilljar.com/c/9ifid4g2yrdw",
+      },
       {
         name: "AI Capabilities and Limitations",
         link: "https://verify.skilljar.com/c/6pikycgykkdj",
+      },
+    ],
+  },
+  {
+    title: "Machine Learning & Data Science",
+    icon: "rocket",
+    description:
+      "Developing predictive models, analyzing datasets, and building computer vision solutions.",
+    technologies: [
+      { name: "Scikit-learn", icon: "scikitlearn" },
+      { name: "TensorFlow", icon: "tensorflow" },
+      { name: "PyTorch", icon: "pytorch" },
+      { name: "OpenCV", icon: "opencv" },
+      { name: "YOLO", icon: "cpu" },
+      { name: "Pandas", icon: "pandas" },
+      { name: "NumPy", icon: "numpy" },
+      { name: "Matplotlib", icon: "python" },
+      { name: "Jupyter Notebook", icon: "code" },
+    ],
+    projects: [
+      "Kybernaut",
+      "BloodPrint ID",
+      "Disease Prediction Website",
+      "Movie Recommendation System",
+    ],
+    certifications: [
+      {
+        name: "Machine Learning Specialization",
+        link: "https://coursera.org/share/f50e5c9782d803c4a48b56c8ca66dc3f",
       },
       {
         name: "Artificial Intelligence Fundamentals",
@@ -53,43 +88,24 @@ const skillGroups = [
     ],
   },
   {
-    title: "Machine Learning & Deep Learning",
-    icon: "rocket",
-    description:
-      "Developing predictive models and deep learning solutions for real-world applications.",
-    technologies: [
-      { name: "Scikit-learn", icon: "scikitlearn" },
-      { name: "PyTorch", icon: "pytorch" },
-      { name: "TensorFlow", icon: "tensorflow" },
-      { name: "Keras", icon: "keras" },
-      { name: "XGBoost", icon: "cpu" },
-      { name: "OpenCV", icon: "opencv" },
-    ],
-    projects: [
-      "BloodPrint ID",
-      "Hand Gesture Controlled Game",
-      "Movie Recommendation System",
-      "Disease Prediction Website",
-      "Smart Diaper Pod",
-      "Smart Helmet",
-    ],
-    certifications: [
-      {
-        name: "Machine Learning Specialization",
-        link: "https://coursera.org/share/f50e5c9782d803c4a48b56c8ca66dc3f",
-      },
-    ],
-  },
-  {
-    title: "Programming Language",
+    title: "Programming Languages & Backend Development",
     icon: "code",
     description:
-      "Writing efficient, scalable, and maintainable software solutions.",
-    technologies: [{ name: "Python", icon: "python" }],
+      "Developing backend services, REST APIs, and scalable application logic.",
+    technologies: [
+      { name: "Python", icon: "python" },
+      { name: "SQL", icon: "code" },
+      { name: "FastAPI", icon: "fastapi" },
+      { name: "Flask", icon: "flask" },
+      { name: "REST APIs", icon: "globe" },
+    ],
     projects: [
-      "Red Light Green Light",
-      "Disease Prediction Website",
-      "Movie Recommendation System",
+      "Kybernaut",
+      "RAGVault",
+      "TicketFlow",
+      "LegalEase",
+      "Stockd",
+      "BloodPrint ID",
     ],
     certifications: [
       {
@@ -111,80 +127,32 @@ const skillGroups = [
     ],
   },
   {
-    title: "Data Science & Analytics",
-    icon: "chat",
-    description:
-      "Extracting insights from data through analysis, visualization, and statistical techniques.",
-    technologies: [
-      { name: "Pandas", icon: "pandas" },
-      { name: "NumPy", icon: "numpy" },
-      { name: "NLTK", icon: "python" },
-      { name: "PowerBI", icon: "grid" },
-    ],
-    projects: ["Movie Recommendation System", "Disease Prediction Website"],
-    certifications: [
-      {
-        name: "Machine Learning Specialization",
-        link: "https://coursera.org/share/f50e5c9782d803c4a48b56c8ca66dc3f",
-      },
-      {
-        name: "Python Intermediate",
-        link: "https://www.sololearn.com/certificates/CC-DZQCLALK",
-      },
-    ],
-  },
-  {
-    title: "Backend & AI Applications",
-    icon: "cpu",
-    description:
-      "Building and deploying AI-powered applications, APIs, and interactive solutions.",
-    technologies: [
-      { name: "FastAPI", icon: "fastapi" },
-      { name: "REST APIs", icon: "globe" },
-      { name: "Flask", icon: "flask" },
-      { name: "Streamlit", icon: "streamlit" },
-    ],
-    projects: [
-      "LegalEase",
-      "BloodPrint ID",
-      "TicketFlow",
-      "Disease Prediction Website",
-      "Movie Recommendation System",
-      "Stockd",
-    ],
-    certifications: [
-      {
-        name: "Python Developer",
-        link: "https://www.sololearn.com/certificates/CC-ULR0I85O",
-      },
-    ],
-  },
-  {
-    title: "Databases",
+    title: "Databases & Data Management",
     icon: "book",
     description:
-      "Managing, storing, and retrieving structured and unstructured data efficiently.",
+      "Managing relational and document databases for data-driven and AI-powered applications.",
     technologies: [
-      { name: "MySQL", icon: "mysql" },
       { name: "PostgreSQL", icon: "postgresql" },
+      { name: "MySQL", icon: "mysql" },
       { name: "MongoDB", icon: "mongodb" },
     ],
-    projects: ["TicketFlow", "BloodPrint ID", "LegalEase", "Stockd"],
+    projects: ["Kybernaut", "RAGVault", "TicketFlow", "LegalEase"],
     certifications: [],
   },
   {
-    title: "Developer Tools",
+    title: "Developer Tools, Cloud & DevOps",
     icon: "star",
     description:
-      "Leveraging modern tools for version control, development, testing, and deployment.",
+      "Building, testing, containerizing, and deploying applications with modern development tools.",
     technologies: [
       { name: "Git", icon: "git" },
       { name: "GitHub", icon: "github" },
       { name: "Docker", icon: "docker" },
-      { name: "VS Code", icon: "code" },
+      { name: "Kubernetes", icon: "cpu" },
+      { name: "Prometheus", icon: "globe" },
       { name: "Postman", icon: "postman" },
     ],
-    projects: [],
+    projects: ["Kybernaut", "RAGVault"],
     certifications: [],
   },
 ];

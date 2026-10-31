@@ -13,6 +13,7 @@ import {
 import { baseURL, person } from "@/resources";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { PublicationCard } from "@/components/feats/PublicationCard";
+import { CertScroller } from "@/components/feats/CertScroller";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -25,6 +26,14 @@ export async function generateMetadata() {
 }
 
 const certifications = [
+  {
+    name: "Building with Claude API",
+    issuer: "Anthropic Education",
+    year: "Oct 2026",
+    link: "https://verify.skilljar.com/c/ot9edhr9tqup",
+    brand: "anthropic",
+    image: "/images/certs/Building with Claude API.jpg",
+  },
   {
     name: "Claude 101",
     issuer: "Anthropic Education",
@@ -171,15 +180,14 @@ export default function Feats() {
           </Row>
         </ScrollReveal>
 
-        <Grid columns="2" s={{ columns: "1" }} gap="16" fillWidth style={{ alignItems: "stretch" }}>
+        <CertScroller>
           {certifications.map((cert, index) => {
             const brand = brandStyles[cert.brand] ?? brandStyles.coursera;
             return (
-              <ScrollReveal
+              <div
                 key={cert.name}
-                delay={index * 60}
-                translateY={28}
-                style={{ height: "100%", display: "flex" }}
+                className="cert-item"
+                style={{ animationDelay: `${index * 70}ms` }}
               >
                 <Card
                   href={cert.link}
@@ -330,10 +338,10 @@ export default function Feats() {
                     </Row>
                   </Column>
                 </Card>
-              </ScrollReveal>
+              </div>
             );
           })}
-        </Grid>
+        </CertScroller>
       </Column>
 
       <Line />

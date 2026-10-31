@@ -14,6 +14,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
+import TerminalWrap from "@/components/about/TerminalWrap";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
@@ -99,6 +100,7 @@ export default function About() {
           >
             {/* Avatar with blue glow ring */}
             <div
+              data-about-avatar
               style={{
                 position: "relative",
                 display: "inline-flex",
@@ -129,7 +131,7 @@ export default function About() {
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
               <Text variant="body-default-s" onBackground="neutral-weak">
-                India / Kanchipuram
+                India / Chennai
               </Text>
             </Row>
 
@@ -159,13 +161,6 @@ export default function About() {
             <Heading className={styles.textAlign} variant="display-strong-xl">
               {person.name}
             </Heading>
-            <Text
-              className={styles.textAlign}
-              variant="display-default-xs"
-              onBackground="neutral-weak"
-            >
-              {person.role}
-            </Text>
             {social.length > 0 && (
               <Row
                 className={styles.blockAlign}
@@ -210,9 +205,50 @@ export default function About() {
           {/* Introduction */}
           {about.intro.display && (
             <ScrollReveal translateY={24} style={{ width: "100%" }}>
-              <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
-                {about.intro.description}
-              </Column>
+              <TerminalWrap>
+                {/* Touch / small screens: little photo badge with an arrow (plays when scrolled into view) */}
+                <div className={styles.mobileTag} aria-hidden>
+                  <span className={styles.mobileLabel}>that&apos;s me!</span>
+                  <svg className={styles.mobileArrow} viewBox="0 0 48 40" width="48" height="40" fill="none">
+                    <path className={styles.mArrowPath} d="M2 10 C16 -2 38 4 42 26" pathLength="1" />
+                    <path className={styles.mArrowHead} d="M35 15 L42 27 L48 14" />
+                  </svg>
+                  <span className={styles.chip}>
+                    <Avatar src={person.avatar} size="l" />
+                  </span>
+                </div>
+
+                <div className={styles.terminal}>
+                  {/* Title bar */}
+                  <div className={styles.terminalBar}>
+                    <span className={styles.dots} aria-hidden>
+                      <i style={{ background: "#ff5f56" }} />
+                      <i style={{ background: "#ffbd2e" }} />
+                      <i style={{ background: "#27c93f" }} />
+                    </span>
+                    <span className={styles.terminalName}>about_me.py</span>
+                    <span className={styles.terminalSpacer} aria-hidden />
+                  </div>
+
+                  {/* Body */}
+                  <div className={styles.terminalBody}>
+                    <div className={styles.prompt}>
+                      <span className={styles.promptSign}>$</span> python about_me.py
+                    </div>
+                    <div className={styles.docstring}>
+                      <span className={styles.quote}>"""</span>
+                      <Column textVariant="body-default-m" fillWidth gap="m" className={styles.docText}>
+                        {about.intro.description}
+                      </Column>
+                      <span className={styles.quote}>"""</span>
+                    </div>
+                    <div className={styles.prompt}>
+                      <span className={styles.promptSign}>$</span>
+                      <span className={styles.cursor} aria-hidden />
+                    </div>
+                  </div>
+                </div>
+              </TerminalWrap>
             </ScrollReveal>
           )}
 
@@ -375,8 +411,9 @@ export default function About() {
                     radius="l"
                     border="neutral-alpha-weak"
                     background="neutral-alpha-weak"
+                    className={styles.studyCard}
                   >
-                    <Text id={institution.name} variant="heading-strong-l">
+                    <Text id={institution.name} variant="heading-strong-l" className={styles.studyName}>
                       {institution.name}
                     </Text>
                     <Text variant="body-default-m" onBackground="neutral-weak">

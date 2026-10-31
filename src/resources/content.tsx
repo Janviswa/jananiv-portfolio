@@ -1,3 +1,4 @@
+import React from "react";
 import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
@@ -5,7 +6,6 @@ const person: Person = {
   firstName: "Janani",
   lastName: "V",
   name: `Janani V`,
-  role: "LLMs • RAG • GenAI",
   avatar: "/images/avatar.jpg",
   email: "jananiviswa05@gmail.com",
   location: "Asia/Kolkata",
@@ -93,7 +93,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from Kanchipuram, India`,
+  description: `Meet ${person.name}, an AI engineer working with LLMs, RAG and agents, based in Chennai, India`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -110,10 +110,46 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        I'm Janani, an AI builder who turns ideas into intelligent products. I work with LLMs, NLP, Generative AI, RAG systems, and fine-tuning, exploring how AI can solve real-world problems. When I'm not experimenting with new models, I'm building solutions that bridge the gap between cutting-edge research and practical applications.
+        <p className="about-intro">
+          I build intelligent AI systems that turn complex ideas into
+          practical solutions. From LLMs and RAG pipelines to AI agents,
+          machine learning models, and backend systems, I enjoy
+          engineering applications that solve real-world problems.
+        </p>
+        <div
+          className="about-intro"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "max-content 1fr",
+            columnGap: "16px",
+            rowGap: "6px",
+            fontSize: "0.95em",
+          }}
+        >
+          {[
+            ["focus", "LLMs · NLP · Generative AI · RAG · AI agents"],
+            [
+              "highlight",
+              "Agentic incident remediation · Permission-aware RAG · LoRA fine-tuned DeBERTa-v3 for injection detection",
+            ],
+            ["status", "curious, building, always learning"],
+          ].map(([key, value]) => (
+            <React.Fragment key={key}>
+              <span
+                style={{
+                  fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+                  color: "var(--brand-on-background-medium)",
+                }}
+              >
+                {key} →
+              </span>
+              <span>{value}</span>
+            </React.Fragment>
+          ))}
+        </div>
       </>
     ),
-  },
+      },
   work: {
     display: true,
     title: "Work Experience",
@@ -224,7 +260,7 @@ const about: About = {
               Bachelor of Technology – Artificial Intelligence and Data Science
             </Text>
             <br />
-            <strong>CGPA: 8.07 / 10</strong> &nbsp;·&nbsp; November 2022 – May 2026
+            <strong>CGPA: 8.2 / 10</strong> &nbsp;·&nbsp; November 2022 – May 2026
             <br />
             <br />
             <Text onBackground="neutral-weak" variant="body-default-s">
@@ -249,11 +285,10 @@ const about: About = {
         <div>
           {[
             { icon: "ti-robot", text: "Generative AI & LLMs" },
-            { icon: "ti-message-circle", text: "Natural language processing" },
-            { icon: "ti-chart-line", text: "Personal finance & investing" },
-            { icon: "ti-palette", text: "UI/UX design" },
-            { icon: "ti-bulb", text: "Problem solving" },
-            { icon: "ti-books", text: "Continuous learning" },
+            { icon: "ti-database", text: "RAG & Knowledge Systems" },
+            { icon: "ti-brain", text: "Machine Learning & MLOps" },
+            { icon: "ti-bulb", text: "Agentic AI & Automation" },
+            { icon: "ti-puzzle", text: "Problem Solving & Critical Thinking" },
           ].map((item, i) => (
             <div
               key={item.text}
@@ -274,10 +309,9 @@ const about: About = {
       description: (
         <div>
           {[
-            { icon: "ti-news", text: "Reading about emerging technologies" },
-            { icon: "ti-chart-line", text: "Personal finance & investing" },
-            { icon: "ti-bike", text: "Cycling and outdoor activities" },
-            { icon: "ti-rocket", text: "Following startup and technology trends" },
+            { icon: "ti-news", text: "Exploring Emerging Technology" },
+            { icon: "ti-chart-line", text: "Personal Finance & Investing" },
+            { icon: "ti-bike", text: "Cycling & Outdoor Activities" },
           ].map((item, i) => (
             <div
               key={item.text}

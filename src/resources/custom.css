@@ -46,3 +46,238 @@
   width: 22px;
   text-align: center;
 }
+
+/* ── Home: Certifications feat card (matches /feats cert-card hover) ── */
+.fp-cert-card {
+  position: relative;
+  background: var(--neutral-background-weak);
+  border: 1px solid var(--neutral-border-weak);
+  transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0);
+  transition:
+    transform 0.4s cubic-bezier(.22, 1, .36, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease;
+  will-change: transform;
+}
+.fp-cert-card:hover {
+  background: var(--neutral-background-medium);
+  border-color: var(--brand-border-medium);
+  box-shadow: -10px 12px 40px -12px var(--brand-background-strong);
+  transform: perspective(800px) rotateY(-4deg) translateX(10px) scale(1.02);
+}
+
+/* Shine sweep across the certificate */
+.fp-cert-shine {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: overlay;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.55) 50%, transparent 65%);
+  background-size: 250% 250%;
+  background-position: 120% 120%;
+  transition: opacity 0.4s ease, background-position 1.1s ease;
+}
+.fp-cert-card:hover .fp-cert-shine {
+  opacity: 1;
+  background-position: -20% -20%;
+}
+
+/* Corner brackets slide outward */
+.fp-cert-corner {
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+.fp-cert-card:hover .fp-cert-corner-tl {
+  transform: translate(-3px, -3px);
+  border-color: var(--brand-background-strong) !important;
+}
+.fp-cert-card:hover .fp-cert-corner-br {
+  transform: translate(3px, 3px);
+  border-color: var(--brand-background-strong) !important;
+}
+
+/* Certificate text lifts slightly */
+.fp-cert-content {
+  transition: transform 0.5s cubic-bezier(.22, 1, .36, 1);
+}
+.fp-cert-card:hover .fp-cert-content {
+  transform: scale(1.05);
+}
+
+/* Verified ribbon slides in a little further */
+.fp-cert-ribbon {
+  transition: transform 0.5s cubic-bezier(.22, 1, .36, 1), box-shadow 0.4s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+.fp-cert-card:hover .fp-cert-ribbon {
+  transform: rotate(40deg) translate(-4px, 2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fp-cert-card,
+  .fp-cert-card:hover { transform: none; }
+  .fp-cert-shine,
+  .fp-cert-corner,
+  .fp-cert-content,
+  .fp-cert-ribbon { transition: none; }
+}
+/* ── Clean responsive certificate autoplay carousel ── */
+.cert-scroller,
+.cert-scroller--autoplay {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.cert-track,
+.cert-track--autoplay {
+  --cert-card-width: min(340px, 78vw);
+  display: flex;
+  align-items: stretch;
+  gap: 18px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 32px max(12px, calc((100% - var(--cert-card-width)) / 2)) 44px;
+  margin: 0;
+  scroll-padding-inline: max(12px, calc((100% - var(--cert-card-width)) / 2));
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  touch-action: pan-x pan-y;
+  cursor: auto;
+}
+
+.cert-track::-webkit-scrollbar,
+.cert-track--autoplay::-webkit-scrollbar {
+  display: none;
+}
+
+.cert-track > .cert-item,
+.cert-track--autoplay > .cert-item {
+  position: relative;
+  flex: 0 0 var(--cert-card-width);
+  width: var(--cert-card-width);
+  min-width: 0;
+  z-index: 1;
+  opacity: 1;
+  transform: translateY(0) scale(.965);
+  transform-origin: center center;
+  scroll-snap-align: center;
+  transition:
+    transform 520ms cubic-bezier(.2, .8, .2, 1),
+    filter 520ms ease;
+  filter: saturate(.94);
+}
+
+.cert-track > .cert-item.is-active,
+.cert-track > .cert-item.is-centered,
+.cert-track--autoplay > .cert-item.is-active,
+.cert-track--autoplay > .cert-item.is-centered {
+  z-index: 5;
+  transform: translateY(-9px) scale(1.035);
+  filter: saturate(1.06);
+}
+
+.cert-track .cert-card,
+.cert-track--autoplay .cert-card {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, .30);
+  transition: box-shadow 520ms ease, border-color 420ms ease;
+}
+
+.cert-track .cert-item.is-active .cert-card,
+.cert-track .cert-item.is-centered .cert-card,
+.cert-track--autoplay .cert-item.is-active .cert-card,
+.cert-track--autoplay .cert-item.is-centered .cert-card {
+  box-shadow: 0 24px 48px rgba(0, 0, 0, .42);
+}
+
+.cert-track .cert-card img,
+.cert-track--autoplay .cert-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 650ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.cert-track .cert-item.is-active .cert-card img,
+.cert-track .cert-item.is-centered .cert-card img,
+.cert-track--autoplay .cert-item.is-active .cert-card img,
+.cert-track--autoplay .cert-item.is-centered .cert-card img {
+  transform: scale(1.025);
+}
+
+.cert-track .cert-item :is(h1, h2, h3, p, small, span),
+.cert-track--autoplay .cert-item :is(h1, h2, h3, p, small, span) {
+  overflow-wrap: anywhere;
+}
+
+/* No arrow controls and no cursor-only hover animation. */
+.cert-scroller .cert-arrow,
+.cert-scroller--autoplay .cert-arrow,
+.cert-scroller button[aria-label*="certificate" i],
+.cert-scroller--autoplay button[aria-label*="certificate" i] {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .cert-track,
+  .cert-track--autoplay {
+    --cert-card-width: min(86vw, 380px);
+    gap: 14px;
+    padding-top: 26px;
+    padding-bottom: 36px;
+  }
+
+  .cert-track > .cert-item.is-active,
+  .cert-track > .cert-item.is-centered,
+  .cert-track--autoplay > .cert-item.is-active,
+  .cert-track--autoplay > .cert-item.is-centered {
+    transform: translateY(-7px) scale(1.025);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cert-track,
+  .cert-track--autoplay {
+    scroll-behavior: auto;
+  }
+
+  .cert-track > .cert-item,
+  .cert-track--autoplay > .cert-item,
+  .cert-track .cert-card,
+  .cert-track--autoplay .cert-card,
+  .cert-track .cert-card img,
+  .cert-track--autoplay .cert-card img {
+    transition: none !important;
+  }
+}
+
+.skills-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 900px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .skills-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+}

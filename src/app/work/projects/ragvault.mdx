@@ -1,0 +1,129 @@
+---
+title: "RAGVault: Permission-Aware RAG System"
+publishedAt: "2026-09-10"
+summary: "A permission-aware RAG assistant with semantic search, role-based access control, cited answers, access requests, and audit trails."
+
+images:
+  - "/images/projects/ragvault/cover-01.png"
+  - "/images/projects/ragvault/cover-02.png"
+  - "/images/projects/ragvault/cover-03.png"
+  - "/images/projects/ragvault/cover-04.gif"
+
+team:
+  - name: "Janani V"
+    role: "AI Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/jananiv05/"
+
+tags:
+  - "LLM & RAG"
+  - "Web Applications"
+
+link: "https://github.com/Janviswa/ragvault-permission-aware-rag.git"
+---
+
+## Overview
+
+RAGVault is a permission-aware Retrieval-Augmented Generation (RAG) application that enables users to search and ask questions about enterprise documents. It generates context-grounded answers using document passages the authenticated user is authorized to access.
+
+## Problem
+
+Traditional RAG systems can expose sensitive information when retrieval does not enforce user-level permissions. Enterprise environments need secure document retrieval, controlled access, and traceable user activity.
+
+## Solution
+
+RAGVault integrates access control into the retrieval pipeline. Documents are classified as Public, Internal, Confidential, or Restricted, and retrieval is filtered according to user roles and applicable permissions. Users can request access to restricted documents, while administrators can approve or reject requests for temporary or permanent access.
+
+## Key Features
+
+- **Permission-Aware Retrieval:** Filters document retrieval based on user roles, document classifications, and applicable access permissions.
+- **Semantic Search:** Retrieves relevant document chunks using vector similarity search.
+- **Source-Cited Answers:** Provides document and passage references to support answer verification.
+- **Access Request Workflow:** Supports access requests, administrator approval or rejection, and temporary access.
+- **Admin Dashboard:** Displays indexed documents, users, pending requests, security events, and system activity.
+- **User and Role Management:** Provides separate Admin and Employee experiences with role-based permissions.
+- **Activity Timeline:** Tracks relevant questions, document access, requests, and approvals.
+- **Security Monitoring:** Records and displays security-related events.
+- **RAGAS Evaluation:** Measures retrieval and answer quality using evaluation metrics.
+
+## Technologies Used
+
+- **Next.js & TypeScript** — Frontend and user interface.
+- **FastAPI & Python** — API services, retrieval pipeline, and access-control logic.
+- **PostgreSQL** — Relational application data and audit records.
+- **Qdrant** — Vector storage and semantic retrieval.
+- **Sentence Transformers** — Embedding generation using `sentence-transformers/all-MiniLM-L6-v2`.
+- **Groq API** — LLM-powered answer generation.
+- **Docker** — Containerization and environment management.
+- **RAGAS & Pytest** — RAG quality evaluation and application testing.
+
+## Challenges
+
+The primary challenge was enforcing permissions during retrieval so unauthorized document chunks would not enter the LLM context. Maintaining consistent access rules across document retrieval, temporary approvals, permission changes, and tenant isolation required careful implementation and security testing.
+
+Another important challenge was evaluating answer quality separately from authorization security, because RAGAS metrics alone cannot establish that access controls are secure.
+
+## Results
+
+Developed a multi-role RAG platform with approximately 35 indexed documents, semantic retrieval, context-grounded answers, document access controls, access request workflows, and an activity timeline for auditing relevant events.
+
+
+## RAGAS Results
+
+RAGVault was evaluated using **RAGAS across 25 test questions** to assess retrieval quality and answer reliability.
+
+<div style={{ overflowX: "auto", width: "100%", margin: "1.5rem 0" }}>
+  <table style={{ width: "100%", minWidth: "580px", borderCollapse: "collapse", textAlign: "left", fontSize: "0.9rem", lineHeight: "1.6" }}>
+    <thead>
+      <tr style={{ borderBottom: "2px solid #737373" }}>
+        <th style={{ padding: "12px 16px", width: "25%", whiteSpace: "nowrap" }}>Metric</th>
+        <th style={{ padding: "12px 16px", width: "12%", whiteSpace: "nowrap" }}>Score</th>
+        <th style={{ padding: "12px 16px", width: "63%" }}>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style={{ borderBottom: "1px solid #404040" }}>
+        <td style={{ padding: "12px 16px", whiteSpace: "nowrap" }}>Faithfulness</td>
+        <td style={{ padding: "12px 16px", fontVariantNumeric: "tabular-nums" }}>0.797</td>
+        <td style={{ padding: "12px 16px" }}>Measures whether answers are supported by the retrieved context.</td>
+      </tr>
+      <tr style={{ borderBottom: "1px solid #404040" }}>
+        <td style={{ padding: "12px 16px" }}>Answer Relevancy</td>
+        <td style={{ padding: "12px 16px", fontVariantNumeric: "tabular-nums" }}>0.731</td>
+        <td style={{ padding: "12px 16px" }}>Measures how relevant answers are to the questions.</td>
+      </tr>
+      <tr style={{ borderBottom: "1px solid #404040" }}>
+        <td style={{ padding: "12px 16px" }}>Context Precision</td>
+        <td style={{ padding: "12px 16px", fontVariantNumeric: "tabular-nums" }}>0.799</td>
+        <td style={{ padding: "12px 16px" }}>Measures the relevance of retrieved context.</td>
+      </tr>
+      <tr style={{ borderBottom: "1px solid #404040" }}>
+        <td style={{ padding: "12px 16px" }}>Context Recall</td>
+        <td style={{ padding: "12px 16px", fontVariantNumeric: "tabular-nums" }}>0.868</td>
+        <td style={{ padding: "12px 16px" }}>Measures how well retrieved context covers the information needed to answer.</td>
+      </tr>
+      <tr style={{ borderBottom: "1px solid #404040" }}>
+        <td style={{ padding: "12px 16px" }}>Context Entity Recall</td>
+        <td style={{ padding: "12px 16px", fontVariantNumeric: "tabular-nums" }}>0.696</td>
+        <td style={{ padding: "12px 16px" }}>Measures coverage of relevant entities in the retrieved context.</td>
+      </tr>
+      <tr style={{ borderBottom: "1px solid #404040" }}>
+        <td style={{ padding: "12px 16px" }}>Noise Sensitivity</td>
+        <td style={{ padding: "12px 16px", fontVariantNumeric: "tabular-nums" }}>0.128</td>
+        <td style={{ padding: "12px 16px" }}>Measures sensitivity to irrelevant information; lower values are generally preferred.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+### Evaluation Summary
+
+Using a threshold of **0.70** for higher-is-better metrics, Faithfulness, Answer Relevancy, Context Precision, and Context Recall met the target. Context Entity Recall scored slightly below the threshold at **0.696**.
+
+Noise Sensitivity is interpreted separately, with lower values generally preferred.
+
+RAGAS evaluates retrieval and answer quality, while authorization and access-control security require separate testing.
+
+## Key Learnings
+
+Building secure RAG applications requires access control throughout the retrieval pipeline, not just at the user interface or answer-generation stage. Combining permission-aware retrieval, auditable access workflows, and evaluation metrics provides a stronger foundation for enterprise knowledge assistants.
