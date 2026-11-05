@@ -25,12 +25,12 @@ export async function generateMetadata() {
 }
 
 // TODO: replace with your actual resume link (e.g. Google Drive "Anyone with the link can view" share URL)
-const RESUME_URL = "https://drive.google.com/file/d/16QGlerM6sEOp8WLgD8SV-31taYug3DuJ/view?usp=sharing";
+const RESUME_URL = "https://drive.google.com/file/d/1jYXAMZ3sOQcrMXW_N-Q9KhTEcW2XCTTa/view?usp=sharing";
 
 const contactDetails = [
   {
     label: "Location",
-    value: "Kanchipuram, India",
+    value: "Chennai, India",
     icon: "globe",
     href: null,
   },

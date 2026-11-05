@@ -11,6 +11,7 @@ interface ProjectsProps {
 
 // Explicit display order — edit this list to reorder projects on the work page
 const PROJECT_ORDER = [
+  "kybernaut",
   "ragvault",
   "ticketflow",
   "bloodprint-id",

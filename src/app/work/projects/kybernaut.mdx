@@ -1,0 +1,84 @@
+---
+title: "Kybernaut"
+publishedAt: "2026-10-21"
+summary: "Agentic AIOps platform for infrastructure monitoring, anomaly detection, incident investigation, human-approved remediation, and cost optimization."
+images:
+  - "/images/projects/kybernaut/cover-01.jpg"
+  - "/images/projects/kybernaut/cover-02.gif"
+  - "/images/projects/kybernaut/cover-03.jpg"
+  - "/images/projects/kybernaut/cover-04.jpg"
+team:
+  - name: "Janani V"
+    role: "AI Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/jananiv05/"
+tags:
+  - "Agentic AI"
+  - "AIOps"
+  - "Machine Learning"
+  - "MLOps"
+  - "Infrastructure Monitoring"
+  - "Observability"
+  - "DevOps"
+  - "LLM"
+
+link: "https://github.com/Janviswa/kybernaut.git"
+---
+
+## Overview
+
+Kybernaut is an **Agentic AIOps platform** designed to improve infrastructure reliability and cost efficiency through intelligent monitoring, anomaly detection, and incident investigation. It combines Prometheus telemetry, machine learning-based anomaly detection, and agent-driven workflows to identify service issues, investigate root causes, and recommend controlled remediation with human approval.
+
+## Problem
+
+Traditional monitoring systems primarily focus on collecting metrics and generating alerts, requiring engineers to manually investigate incidents, correlate telemetry, and identify appropriate remediation steps. This increases incident resolution time and makes infrastructure optimization more challenging.
+
+## Solution
+
+Developed an integrated AIOps platform combining **real-time telemetry, per-service anomaly detection, and agentic incident investigation**. Using LangGraph-based workflows, Kybernaut analyses incident evidence, generates root-cause insights, evaluates remediation runbooks, and supports human-approved execution through controlled workflows.
+
+## Key Features
+
+- **Infrastructure Monitoring** — Centralized monitoring of microservices using Prometheus and Grafana.
+- **Anomaly Detection** — Per-service median/MAD-based anomaly detection, with Isolation Forest implemented as a separate detector.
+- **Agentic Investigation** — LangGraph and LangChain workflows for incident diagnosis, root-cause analysis, and remediation recommendations.
+- **Evidence-Based Remediation** — Evaluates runbook conditions, workload mappings, and safety policies before proposing actions.
+- **Human-in-the-Loop** — Requires authorized operator approval before executing sensitive remediation actions.
+- **Observability** — Integrated metrics and log monitoring using Prometheus, Grafana, Loki, Grafana Alloy, and Promtail.
+- **Reliability Analytics** — Incident statistics, service health, and resource utilization insights.
+- **Cost Optimization** — Estimated infrastructure costs and resource optimization opportunities.
+- **Audit Trail** — Persistent records of investigations, approvals, and remediation activities.
+- **Operator Security** — JWT-based authentication and permission-controlled access.
+
+## Technologies Used
+
+- **Python** — Backend services, monitoring logic, and automation.
+- **FastAPI & Uvicorn** — REST API development and serving.
+- **React & TypeScript** — Interactive web interface.
+- **Vite & React Router** — Frontend development and navigation.
+- **Recharts** — Dashboard charts and data visualization.
+- **SQLite** — Incident, approval, and audit persistence.
+- **Prometheus** — Metrics collection and alerting.
+- **Grafana** — Metrics dashboards and visualization.
+- **Loki, Grafana Alloy & Promtail** — Log storage and collection.
+- **Docker Compose** — Containerized services and monitoring stack.
+- **Kubernetes** — Isolated remediation lab.
+- **LangGraph & LangChain** — Agentic incident workflow orchestration.
+- **Groq** — Optional language-model provider.
+- **NumPy & scikit-learn** — Statistical anomaly detection and machine learning.
+- **PyJWT & Argon2** — Operator authentication and password verification.
+- **HTTPX** — Asynchronous API and telemetry requests.
+- **Pytest & Vitest** — Backend and frontend testing.
+- **GitHub Actions** — Automated CI checks.
+
+## Challenges and Learnings
+
+One of the main challenges was correlating telemetry with incident evidence to produce meaningful and actionable diagnoses. Implementing per-service anomaly detection required direction-aware statistical thresholds to distinguish genuine resource anomalies from normal variations.
+
+Another challenge was designing safe remediation workflows. I implemented workload mapping, runbook-based policy checks, and human-in-the-loop approval to prevent agents from executing unverified infrastructure changes. This project strengthened my understanding of **Agentic AI, AIOps, observability, anomaly detection, distributed systems, and secure automation**.
+
+## Outcome
+
+Kybernaut brings infrastructure monitoring, anomaly detection, agent-based incident investigation, and controlled remediation into a unified platform. It provides operators with service-level visibility, evidence-based root-cause insights, approval-controlled remediation workflows, and infrastructure cost optimization estimates.
+
+The platform demonstrates how **Agentic AI can support infrastructure operations by moving beyond traditional alerting toward intelligent, evidence-driven incident response**.
